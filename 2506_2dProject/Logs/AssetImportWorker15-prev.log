@@ -1,0 +1,863 @@
+Using pre-set license
+Built from '2023.2/staging' branch; Version is '2023.2.20f1 (0e25a174756c) revision 927137'; Using compiler version '193431935'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19044) 64bit Professional' Language: 'ko' Physical Memory: 16315 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2023.2.20f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker15
+-projectPath
+C:/3young/2506_2dProject/2506_2dProject
+-logFile
+Logs/AssetImportWorker15.log
+-srvPort
+52473
+-job-worker-count
+5
+-background-job-worker-count
+8
+-asset-garbage-collectors
+1
+Successfully changed project path to: C:/3young/2506_2dProject/2506_2dProject
+C:/3young/2506_2dProject/2506_2dProject
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [16216] Host "[IP] 192.168.0.174 [Port] 0 [Flags] 2 [Guid] 195605878 [EditorId] 195605878 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-7GLVIQO) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [16216] Host "[IP] 192.168.0.174 [Port] 0 [Flags] 2 [Guid] 195605878 [EditorId] 195605878 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-7GLVIQO) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 5
+[Physics::Module] Initialized MultithreadedJobDispatcher with 5 workers.
+Library Redirect Path: Library/
+Refreshing native plugins compatible for Editor in 5.96 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2023.2.20f1 (0e25a174756c)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2023.2.20f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/3young/2506_2dProject/2506_2dProject/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1660 SUPER (ID=0x21c4)
+    Vendor:   NVIDIA
+    VRAM:     5966 MB
+    Driver:   32.0.15.6614
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2023.2.20f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2023.2.20f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2023.2.20f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56780
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2023.2.20f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2023.2.20f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2023.2.20f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Registered in 0.004364 seconds.
+- Loaded All Assemblies, in  0.398 seconds
+Native extension for Android target not found
+Android Extension - Scanning For ADB Devices 190 ms
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.547 seconds
+Domain Reload Profiling: 943ms
+	BeginReloadAssembly (128ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (37ms)
+	RebuildNativeTypeToScriptingClass (14ms)
+	initialDomainReloadingComplete (50ms)
+	LoadAllAssembliesAndSetupDomain (168ms)
+		LoadAssemblies (126ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (165ms)
+			TypeCache.Refresh (164ms)
+				TypeCache.ScanAssembly (150ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (547ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (489ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (292ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (5ms)
+			ProcessInitializeOnLoadAttributes (142ms)
+			ProcessInitializeOnLoadMethodAttributes (46ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Import Worker Mode flag is 0x00
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\3young\2506_2dProject\2506_2dProject\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\3young\2506_2dProject\2506_2dProject\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.921 seconds
+Script 'Camera' has the same name as built-in Unity component.
+AddComponent and GetComponent will not work with this script.
+Refreshing native plugins compatible for Editor in 4.80 ms, found 4 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 4.85 ms, found 4 plugins.
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.826 seconds
+Domain Reload Profiling: 1743ms
+	BeginReloadAssembly (336ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (29ms)
+	RebuildCommonClasses (38ms)
+	RebuildNativeTypeToScriptingClass (14ms)
+	initialDomainReloadingComplete (41ms)
+	LoadAllAssembliesAndSetupDomain (487ms)
+		LoadAssemblies (368ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (221ms)
+			TypeCache.Refresh (172ms)
+				TypeCache.ScanAssembly (152ms)
+			BuildScriptInfoCaches (40ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (826ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (626ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (18ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (67ms)
+			ProcessInitializeOnLoadAttributes (345ms)
+			ProcessInitializeOnLoadMethodAttributes (185ms)
+			AfterProcessingInitializeOnLoad (5ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (7ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+Refreshing native plugins compatible for Editor in 4.91 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 15 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 5326 unused Assets / (1.6 MB). Loaded Objects now: 5879.
+Memory consumption went from 119.4 MB to 117.9 MB.
+Total: 10.861400 ms (FindLiveObjects: 0.587300 ms CreateObjectMapping: 0.766100 ms MarkObjects: 8.146800 ms  DeleteObjects: 1.360700 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 16309.253710 seconds.
+  path: Assets/ImportedAssets/Tiny RPG Forest/Artwork/sprites/mole/idle/mole-idle-back.png
+  artifactKey: Guid(c5ab53f1aba4f405b838d610445575ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Tiny RPG Forest/Artwork/sprites/mole/idle/mole-idle-back.png using Guid(c5ab53f1aba4f405b838d610445575ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '79e7840d3fbaa8f5dc8c7b377a7a9314') in 0.0986259 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.966611 seconds.
+  path: Assets/ImportedAssets/Tiny RPG Forest/Artwork/sprites/treant/idle/treant-idle-back.png
+  artifactKey: Guid(b51d18577d0ec4d29b81998d983bd710) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Tiny RPG Forest/Artwork/sprites/treant/idle/treant-idle-back.png using Guid(b51d18577d0ec4d29b81998d983bd710) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '47ad51cf47ea8d2f138631faf13f852b') in 0.0184569 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 165.853064 seconds.
+  path: Assets/ImportedAssets/Pet Cats pack/Sprites/Meow-VFX/Meow-VFX.png
+  artifactKey: Guid(95d6cf940d9b66d42b54ab1988b4bd42) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pet Cats pack/Sprites/Meow-VFX/Meow-VFX.png using Guid(95d6cf940d9b66d42b54ab1988b4bd42) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e726c6b6506c3de6826b3c00678ff062') in 0.0606279 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 5
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.074742 seconds.
+  path: Assets/ImportedAssets/MR3_2004/Heart with wings/HeartW1.png
+  artifactKey: Guid(01d82b07412b5904d8b1244ddbea187c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/MR3_2004/Heart with wings/HeartW1.png using Guid(01d82b07412b5904d8b1244ddbea187c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0960e6808abe293899c62b4fefd731fa') in 0.0665175 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/ImportedAssets/MR3_2004/Heart with wings/HeartW3.png
+  artifactKey: Guid(2d988b3e4ab42da43b336f5858a6d62c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/MR3_2004/Heart with wings/HeartW3.png using Guid(2d988b3e4ab42da43b336f5858a6d62c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '84c614a35fd7219171cd8dc064da33d9') in 0.0515126 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.377271 seconds.
+  path: Assets/ImportedAssets/MR3_2004/heart/1.png
+  artifactKey: Guid(6f65025e5497ef14e80dd69586ee8e2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/MR3_2004/heart/1.png using Guid(6f65025e5497ef14e80dd69586ee8e2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1dda58212b3fdc200e09c3a9e0927730') in 0.0272894 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/ImportedAssets/MR3_2004/heart/Heart11.png
+  artifactKey: Guid(0a9295a02a349694681130a58b94cd61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/MR3_2004/heart/Heart11.png using Guid(0a9295a02a349694681130a58b94cd61) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e8a0af444f2dbc17ebb3d790666f51bb') in 0.0326326 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/ImportedAssets/MR3_2004/heart/Heart9.png
+  artifactKey: Guid(136dbe117d7c66a40b2fd1c0c8d3e361) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/MR3_2004/heart/Heart9.png using Guid(136dbe117d7c66a40b2fd1c0c8d3e361) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a300dc35c6ff5de5ec572c8e1eb2bbb3') in 0.0500918 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/ImportedAssets/MR3_2004/heart/Heart3.png
+  artifactKey: Guid(f2b81f36500871a4787e12da2e51ca4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/MR3_2004/heart/Heart3.png using Guid(f2b81f36500871a4787e12da2e51ca4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f8d637154ed925e485d7a07aae87264a') in 0.026477 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/ImportedAssets/MR3_2004/heart/Heart7.png
+  artifactKey: Guid(f94f4bc85b354584dbea380598e4a7ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/MR3_2004/heart/Heart7.png using Guid(f94f4bc85b354584dbea380598e4a7ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b58b75f88bd8a91c8880e4af87c22946') in 0.0325557 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/ImportedAssets/MR3_2004/heart/3.png
+  artifactKey: Guid(fbf04a44fdaf29544a22fa1064c39ef0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/MR3_2004/heart/3.png using Guid(fbf04a44fdaf29544a22fa1064c39ef0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '66034048479c0d3b72d3c29ef54cf92c') in 0.0320484 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/ImportedAssets/MR3_2004/heart/Heart13.png
+  artifactKey: Guid(6ced478ef7efe594da87055bc8649a60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/MR3_2004/heart/Heart13.png using Guid(6ced478ef7efe594da87055bc8649a60) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'daca48fbcd1dc7441b995e401ea434c1') in 0.0328848 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000098 seconds.
+  path: Assets/ImportedAssets/MR3_2004/heart/Heart6.png
+  artifactKey: Guid(496d2284a996d8647a9e8e5b328406d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/MR3_2004/heart/Heart6.png using Guid(496d2284a996d8647a9e8e5b328406d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e75b0b8a99082829501ca013665fcac8') in 0.0226473 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/ImportedAssets/MR3_2004/heart/Heart10.png
+  artifactKey: Guid(803d2e1fb07c50b47885c6a286ef799a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/MR3_2004/heart/Heart10.png using Guid(803d2e1fb07c50b47885c6a286ef799a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c61ad72f351e61fd3c7bc7250573be3a') in 0.0191136 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.446447 seconds.
+  path: Assets/ImportedAssets/MR3_2004/heart/Heart17.png
+  artifactKey: Guid(917c95d834ea2b8438ac7fc90a9d8cea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/MR3_2004/heart/Heart17.png using Guid(917c95d834ea2b8438ac7fc90a9d8cea) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b0b2b281cf70e5f9cbf0018a35abfecb') in 0.0232083 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/ImportedAssets/MR3_2004/heart/Heart19.png
+  artifactKey: Guid(71a398fb187183943944b66fb7e28462) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/MR3_2004/heart/Heart19.png using Guid(71a398fb187183943944b66fb7e28462) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '081d64ca5a8bde63d7b04691db52a8c5') in 0.0189761 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.035814 seconds.
+  path: Assets/ImportedAssets/MR3_2004/heart/Heart20.png
+  artifactKey: Guid(1b35635e133ee49419030781749dc98f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/MR3_2004/heart/Heart20.png using Guid(1b35635e133ee49419030781749dc98f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd8ff50f2a2ca679232a1da15a20fd0cc') in 0.0226044 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/ImportedAssets/MR3_2004/heart/Heart22.png
+  artifactKey: Guid(2221f2dfc0c1f814d91dfe0b4b90cb59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/MR3_2004/heart/Heart22.png using Guid(2221f2dfc0c1f814d91dfe0b4b90cb59) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2080a7677d301b77addbdf31f348a19a') in 0.0207235 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.011407 seconds.
+  path: Assets/ImportedAssets/MR3_2004/heart/Heart23.png
+  artifactKey: Guid(4f4ee11f84ac9a845b01cfe0079eee78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/MR3_2004/heart/Heart23.png using Guid(4f4ee11f84ac9a845b01cfe0079eee78) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c5cda238cc3c06b4c636a458041e97d4') in 0.0226942 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.273350 seconds.
+  path: Assets/ImportedAssets/MR3_2004/heart/Heart26.png
+  artifactKey: Guid(1d66d1a3107e3d6468e8c813ee722887) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/MR3_2004/heart/Heart26.png using Guid(1d66d1a3107e3d6468e8c813ee722887) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '160ddb964691d5a7f6faf519ee5238f5') in 0.0252819 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/ImportedAssets/MR3_2004/heart/Heart28.png
+  artifactKey: Guid(aa5661ff1d999b54a91c5983a070e05d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/MR3_2004/heart/Heart28.png using Guid(aa5661ff1d999b54a91c5983a070e05d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'be7841c9fe33562b433070e436ef0c45') in 0.0230528 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.125989 seconds.
+  path: Assets/ImportedAssets/MR3_2004/Heart Destroys/HeartDestroy1.png
+  artifactKey: Guid(e453a8c48059b6d40a9375877a058f2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/MR3_2004/Heart Destroys/HeartDestroy1.png using Guid(e453a8c48059b6d40a9375877a058f2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8b6612b989a023f014671d8f24f573d8') in 0.0382517 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.456727 seconds.
+  path: Assets/ImportedAssets/MR3_2004/heart in box/1.png
+  artifactKey: Guid(3e7f38efa577bc74898b79d54ccee6e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/MR3_2004/heart in box/1.png using Guid(3e7f38efa577bc74898b79d54ccee6e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1271a11bebddabdfa22a7bc84cad99cc') in 0.0218522 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/ImportedAssets/MR3_2004/heart in box/6.png
+  artifactKey: Guid(c6acfb37e5e3033409dc915b37c59c5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/MR3_2004/heart in box/6.png using Guid(c6acfb37e5e3033409dc915b37c59c5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5dca42816400ffe71e1c218b09121914') in 0.0219655 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/ImportedAssets/MR3_2004/heart in box/5.png
+  artifactKey: Guid(0c2aa5e47188ece429f0ec46831be090) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/MR3_2004/heart in box/5.png using Guid(0c2aa5e47188ece429f0ec46831be090) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '81e20fb24ff94e290e04c1070d5d58a1') in 0.021536 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.044037 seconds.
+  path: Assets/ImportedAssets/MR3_2004/Animation/Animationcolorheart.anim
+  artifactKey: Guid(ca187257e2bc3a64fa3e3c45aa15805e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/MR3_2004/Animation/Animationcolorheart.anim using Guid(ca187257e2bc3a64fa3e3c45aa15805e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6a6d93934d57f4f3ad41e23271bacb64') in 0.0012143 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.043023 seconds.
+  path: Assets/ImportedAssets/MR3_2004/Animation/1.controller
+  artifactKey: Guid(6848e657169818b4b92bfd2f8a2e6055) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/MR3_2004/Animation/1.controller using Guid(6848e657169818b4b92bfd2f8a2e6055) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '096c3e925cd5c20c9b98e90aad2d21b5') in 0.0019429 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.651304 seconds.
+  path: Assets/ImportedAssets/MR3_2004/Animation/Animro.controller
+  artifactKey: Guid(7b9e6f8dc235fdb419a5c8440f8e1da9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/MR3_2004/Animation/Animro.controller using Guid(7b9e6f8dc235fdb419a5c8440f8e1da9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6c2ffbb4a7a95d7663cd2a5caa55f389') in 0.0014422 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.711834 seconds.
+  path: Assets/ImportedAssets/MR3_2004/Animation/rotationAnimation.anim
+  artifactKey: Guid(f4598ddda6562cd41a89441f8478a2ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/MR3_2004/Animation/rotationAnimation.anim using Guid(f4598ddda6562cd41a89441f8478a2ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '344f04427362bb3cc5fcfbaef476aaef') in 0.0010109 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 136.380985 seconds.
+  path: Assets/karsiori/Pixel Art Flower Pack
+  artifactKey: Guid(8dc5a41e6e4101244b42c6be2dbda7df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/karsiori/Pixel Art Flower Pack using Guid(8dc5a41e6e4101244b42c6be2dbda7df) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8a942a5d7ebb678198f83a6c6062df15') in 0.0006361 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.653148 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Sprites Inspector Preset.preset
+  artifactKey: Guid(c4697fe2bbb820a46938534aee71f091) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Sprites Inspector Preset.preset using Guid(c4697fe2bbb820a46938534aee71f091) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5b6af8d79776039e1179efaeb879bc19') in 0.0024398 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.840323 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Flower 1
+  artifactKey: Guid(13abf6150f5113045ab3de91bc70aa1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Flower 1 using Guid(13abf6150f5113045ab3de91bc70aa1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f74c07129beac2f7901cd5f48e3698b4') in 0.0004538 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.343268 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Flower 1/Flower 1 - BLUE.png
+  artifactKey: Guid(2cb463b44cf97564e97f74890cbd263a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Flower 1/Flower 1 - BLUE.png using Guid(2cb463b44cf97564e97f74890cbd263a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0175cdf3bc6726acfa47c8203cd24215') in 0.0201754 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Flower 1/Flower 1 - RED.png
+  artifactKey: Guid(2da42db2942f71c47999a756614a63bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Flower 1/Flower 1 - RED.png using Guid(2da42db2942f71c47999a756614a63bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2db4594e55f76eb2cf071e1d9433299b') in 0.0198358 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Flower 1/Flower 1 - YELLOW.png
+  artifactKey: Guid(b24e723fd9aa01441a3ce3111ff3c158) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Flower 1/Flower 1 - YELLOW.png using Guid(b24e723fd9aa01441a3ce3111ff3c158) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '82a6d99ffa985d6eababd4ed5c754976') in 0.0163167 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.425986 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Flower 2/Flower 2 - MAGENTA.png
+  artifactKey: Guid(3e4c1f2b2dc109145b564bd221db7e7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Flower 2/Flower 2 - MAGENTA.png using Guid(3e4c1f2b2dc109145b564bd221db7e7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'dadf206abd79dd9cbf91f19cdbc6aca9') in 0.0186329 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Flower 2/Flower 2 - TEAL.png
+  artifactKey: Guid(d0764d47465de934fb74042e876bf009) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Flower 2/Flower 2 - TEAL.png using Guid(d0764d47465de934fb74042e876bf009) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c5eb26ab6f765de52b367888c77ec4fc') in 0.0170832 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.740314 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Flower 3/Flower 3 - BLUE.png
+  artifactKey: Guid(41c479d47923a4e4c82b92ba4cb3eea2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Flower 3/Flower 3 - BLUE.png using Guid(41c479d47923a4e4c82b92ba4cb3eea2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '77f851e98506e706fc984ef267d814fa') in 0.0175413 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Flower 3/Flower 3 - RED.png
+  artifactKey: Guid(40aed3217f4834246bdb586c5964aabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Flower 3/Flower 3 - RED.png using Guid(40aed3217f4834246bdb586c5964aabe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3b7237f9a16ff58aa03a7627a32d717b') in 0.0183431 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Flower 3/Flower 3 - PURPLE.png
+  artifactKey: Guid(d740059b93b671b4bb7b2e664d22e7c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Flower 3/Flower 3 - PURPLE.png using Guid(d740059b93b671b4bb7b2e664d22e7c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c2387799c857fa47b3a9a19ae76e7194') in 0.0149042 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.305338 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Flower 4/Flower 4 - BLUE.png
+  artifactKey: Guid(3e0856d8a4c90b24b8a172ee3991cd7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Flower 4/Flower 4 - BLUE.png using Guid(3e0856d8a4c90b24b8a172ee3991cd7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '378f2d800b9fc72115a35d228fdee155') in 0.0184666 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Flower 4/Flower 4 - TEAL.png
+  artifactKey: Guid(4657b95a8aad8524a84639940346cbce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Flower 4/Flower 4 - TEAL.png using Guid(4657b95a8aad8524a84639940346cbce) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd8ce07e5bf7e87cdbc64ee7c21bd0cf6') in 0.0175293 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.482855 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/FLower 5/Flower 5 - BLUE.png
+  artifactKey: Guid(27700c74447994f4a873545a0c45c954) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/FLower 5/Flower 5 - BLUE.png using Guid(27700c74447994f4a873545a0c45c954) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '517b3d0c070515a92e865918a1cffd44') in 0.0451633 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.634466 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Flower 6/Flower 6 - BLUE.png
+  artifactKey: Guid(e9b01a5a4f997534f9b4f7682ce9dc94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Flower 6/Flower 6 - BLUE.png using Guid(e9b01a5a4f997534f9b4f7682ce9dc94) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '41f5360abb4fedac32481a5a7eed71b1') in 0.0255728 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Flower 6/Flower 6 - PURPLE.png
+  artifactKey: Guid(344cb9dd1f37780419c27ae8c5ae56d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Flower 6/Flower 6 - PURPLE.png using Guid(344cb9dd1f37780419c27ae8c5ae56d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '24edf72e8f12d4c1d420fe329b24fdc9') in 0.0235009 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.454003 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Garden Grid with Flowers/Grid 1.png
+  artifactKey: Guid(60f3b298d2d15564a9471937608fe893) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Garden Grid with Flowers/Grid 1.png using Guid(60f3b298d2d15564a9471937608fe893) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0c6796103175ef159532c25bb03a070f') in 0.0544512 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Garden Grid with Flowers/Grid 7.png
+  artifactKey: Guid(4e001f95b87c3f640a634b345c3d70da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Garden Grid with Flowers/Grid 7.png using Guid(4e001f95b87c3f640a634b345c3d70da) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9c3a5d008910e34d0a657fb5968d9595') in 0.0252713 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Garden Grid with Flowers/Grid 4.png
+  artifactKey: Guid(68bf842db749ee9428ef864652e38c2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Garden Grid with Flowers/Grid 4.png using Guid(68bf842db749ee9428ef864652e38c2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5ebe83892cba4f82185c40ada83857f7') in 0.0945492 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.520187 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Flower Pot 7/Flower Pot 7 - COLORFUL.png
+  artifactKey: Guid(6db95f25122c86240ac519842a66d9f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Flower Pot 7/Flower Pot 7 - COLORFUL.png using Guid(6db95f25122c86240ac519842a66d9f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '759b9c2e4fcd269543bffde84b216cb4') in 0.025473 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.622103 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Flower Pot 6/Flower Pot 6 - COLORFUL.png
+  artifactKey: Guid(10775becfc94b0940b975af76e0e8f22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Flower Pot 6/Flower Pot 6 - COLORFUL.png using Guid(10775becfc94b0940b975af76e0e8f22) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6fb4451f2c8d5d5dafb3406db7b9c506') in 0.0325207 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Flower Pot 6/Flower Pot 6 - PURPLE.png
+  artifactKey: Guid(29371b2f9f6c5b34cb96fa8403fae16d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Flower Pot 6/Flower Pot 6 - PURPLE.png using Guid(29371b2f9f6c5b34cb96fa8403fae16d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8b0ab0d4f4b3dfd3cd943a5733950e9f') in 0.0501706 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.748272 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Flower Pot 5/Flower Pot 5 - COLORFUL.png
+  artifactKey: Guid(c0b1e4b68412b2448b3cde96096422c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Flower Pot 5/Flower Pot 5 - COLORFUL.png using Guid(c0b1e4b68412b2448b3cde96096422c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '59a3c0aaef1499c48dc37772cf5f3dc9') in 0.0657316 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.621709 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Flower Pot 4/Flower Pot 4 - COLORFUL.png
+  artifactKey: Guid(c9857b2503997c5479d9c2faa47851d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Flower Pot 4/Flower Pot 4 - COLORFUL.png using Guid(c9857b2503997c5479d9c2faa47851d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'cf000a4286002213ab23497259d14965') in 0.0175662 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.565707 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Flower Pot 3/Flower Pot 3 - COLORFUL.png
+  artifactKey: Guid(6ece8bf81fe6a3942a2977aa7a955f46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Flower Pot 3/Flower Pot 3 - COLORFUL.png using Guid(6ece8bf81fe6a3942a2977aa7a955f46) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '698ded7c6bf46e8c46e2c7a1e31c599f') in 0.0166286 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.390739 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Flower Pot 2/Flower Pot 2 - COLORFUL.png
+  artifactKey: Guid(86a043ce509bf9645b0db4ab3131ef7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Flower Pot 2/Flower Pot 2 - COLORFUL.png using Guid(86a043ce509bf9645b0db4ab3131ef7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a3fcc21041d5d2e1e0752191c4b640aa') in 0.0174652 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Flower Pot 2/Flower Pot 2 - YELLOW.png
+  artifactKey: Guid(ec8c40456878f634cbf699817cfba67f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Flower Pot 2/Flower Pot 2 - YELLOW.png using Guid(ec8c40456878f634cbf699817cfba67f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a418b1305df8355795a094a11f7bc1f8') in 0.0167072 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.572395 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Flower Pot 1/Flower Pot 1 - BLUE.png
+  artifactKey: Guid(43cbad62b45640744a43cd5ba558acf5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Flower Pot 1/Flower Pot 1 - BLUE.png using Guid(43cbad62b45640744a43cd5ba558acf5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '22dbd42a2ef2e596c606e8981460b44b') in 0.0173312 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.358626 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Flower 13/Flower 13 - COLORFUL.png
+  artifactKey: Guid(d14e7af3dc0d1dd4fa8e7f36af654f57) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Flower 13/Flower 13 - COLORFUL.png using Guid(d14e7af3dc0d1dd4fa8e7f36af654f57) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'fd30b5e6b56609baa281da03f30db11f') in 0.0177501 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000054 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Flower 13/Flower 13 - YELLOW.png
+  artifactKey: Guid(b0882ac29b94e3e438b7a9515591686b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Flower 13/Flower 13 - YELLOW.png using Guid(b0882ac29b94e3e438b7a9515591686b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c1fa9e22ff7d10133d751cc3232429cd') in 0.0143589 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.390956 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Flower 12/Flower 12 - PINK.png
+  artifactKey: Guid(6854573b66bbd0b449611c75fa035f4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Flower 12/Flower 12 - PINK.png using Guid(6854573b66bbd0b449611c75fa035f4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'edd9036748b701624542d656d7fbbf21') in 0.0206547 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.749138 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Flower 11/Flower 11 - PINK.png
+  artifactKey: Guid(ff63bd06548ba964f9db65d0e85fcdbd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Flower 11/Flower 11 - PINK.png using Guid(ff63bd06548ba964f9db65d0e85fcdbd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4695e5394eae845804039375ddca7973') in 0.0238761 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.310413 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Flower 10/Flower 10 - PINK.png
+  artifactKey: Guid(9baf2599c718b2947a778b2efc7cc5a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Flower 10/Flower 10 - PINK.png using Guid(9baf2599c718b2947a778b2efc7cc5a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b0a7afc449064bab8bb6ec8c9e81e910') in 0.0625716 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.193446 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Flower 9/Flower 9 - ORANGE.png
+  artifactKey: Guid(f00a39d26673fef47b132c968a7c6724) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Flower 9/Flower 9 - ORANGE.png using Guid(f00a39d26673fef47b132c968a7c6724) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '222f585443e27e4a7cb258677b652a25') in 0.0593051 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.599035 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Flower 8/Flower 8 - ORANGE.png
+  artifactKey: Guid(521d688269ce416449fb7b0c23487eb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Flower 8/Flower 8 - ORANGE.png using Guid(521d688269ce416449fb7b0c23487eb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '294c4abbe5f4d1a9587e73837ca25a8a') in 0.0347912 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.138536 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Flower 7/Flower 7 - BLUE.png
+  artifactKey: Guid(6c365f1ca9767454086e6e318b8b7bd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Flower 7/Flower 7 - BLUE.png using Guid(6c365f1ca9767454086e6e318b8b7bd0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ad9defbcfbaddf2626ab9330b2ac3555') in 0.0210175 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Flower 7/Flower 7 - PINK 2.png
+  artifactKey: Guid(38d883b529ef7f241a402533047b7a39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Flower 7/Flower 7 - PINK 2.png using Guid(38d883b529ef7f241a402533047b7a39) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ce94b63d4896d40d6cc99c90bc43662a') in 0.025126 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.951841 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Empty Flower Pots/Flower Pot 1 - RED.png
+  artifactKey: Guid(c3a58cf9d12651142922b83cc2b8fd67) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Empty Flower Pots/Flower Pot 1 - RED.png using Guid(c3a58cf9d12651142922b83cc2b8fd67) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8a5e6fbef2ea963174a306d12f3c2757') in 0.0376212 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Empty Flower Pots/Flower Pot 3 - RED.png
+  artifactKey: Guid(44ff9f7e6ae9ef64992784735ed13194) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Empty Flower Pots/Flower Pot 3 - RED.png using Guid(44ff9f7e6ae9ef64992784735ed13194) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2627598750f0d9347f0b8203ec418581') in 0.0274602 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Empty Flower Pots/Flower Pot 2 - YELLOW.png
+  artifactKey: Guid(1c8b6e582e2689142bf9c913a812498f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Empty Flower Pots/Flower Pot 2 - YELLOW.png using Guid(1c8b6e582e2689142bf9c913a812498f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5dc916f0c1377d2e3efa296197840d5f') in 0.0172156 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.131884 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Bush 2/Bush 2 - ORANGE.png
+  artifactKey: Guid(feddc0b8c82c3e34da1331910066ab89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Bush 2/Bush 2 - ORANGE.png using Guid(feddc0b8c82c3e34da1331910066ab89) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2a3817664b4020986e4583fb9007c379') in 0.0173989 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.438412 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Bush 1 (No Flowers)/Bush 1 (no flowers) - GREEN.png
+  artifactKey: Guid(b759fa09a6d70f240a3f21fa5471fbcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Bush 1 (No Flowers)/Bush 1 (no flowers) - GREEN.png using Guid(b759fa09a6d70f240a3f21fa5471fbcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'bd64c0d13fa7f238a46104a090e13d5f') in 0.0185724 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.388608 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Bush 1/Bush 1 - GREEN.png
+  artifactKey: Guid(292ac1d94810dbe489f587f767b4cf34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Bush 1/Bush 1 - GREEN.png using Guid(292ac1d94810dbe489f587f767b4cf34) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '59cf4196a8a10e5e8197a7eebb640dee') in 0.0163565 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Bush 1/Bush 1 - TEAL 2.png
+  artifactKey: Guid(89404f85b0641d140abef4c3e7edadfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Bush 1/Bush 1 - TEAL 2.png using Guid(89404f85b0641d140abef4c3e7edadfd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7bb4665aa3057b5db4d4ce464cab921b') in 0.0174565 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/Bush 1/Bush 1 - WARM GREEN.png
+  artifactKey: Guid(17f124ec9e3d9934c84a760267e8aa35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/Bush 1/Bush 1 - WARM GREEN.png using Guid(17f124ec9e3d9934c84a760267e8aa35) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '96034bc910339bc51589054520748e32') in 0.0161954 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 211.966948 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/FLower 5/Flower 5 - ORANGE.png
+  artifactKey: Guid(eaa7ee89c667fc1459c05fc1f83ad358) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/FLower 5/Flower 5 - ORANGE.png using Guid(eaa7ee89c667fc1459c05fc1f83ad358) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ff9296fd5bdb70135d63b5f97aa74ba6') in 0.0173323 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.088462 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/FLower 5/Flower 5 - ORANGE.png
+  artifactKey: Guid(eaa7ee89c667fc1459c05fc1f83ad358) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/FLower 5/Flower 5 - ORANGE.png using Guid(eaa7ee89c667fc1459c05fc1f83ad358) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c101272788783f41a835b103c3b5258f') in 0.010259 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 67.172427 seconds.
+  path: Assets/ImportedAssets/Tiny RPG Forest/Artwork/sprites/hero/walk
+  artifactKey: Guid(71405aaa993a7461f9babb5c26d09c3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Tiny RPG Forest/Artwork/sprites/hero/walk using Guid(71405aaa993a7461f9babb5c26d09c3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '77c86027f5b9fb85e05b07ba0b4c2aa6') in 0.0006183 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\3young\2506_2dProject\2506_2dProject\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\3young\2506_2dProject\2506_2dProject\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.769 seconds
+Script 'Camera' has the same name as built-in Unity component.
+AddComponent and GetComponent will not work with this script.
+Refreshing native plugins compatible for Editor in 5.03 ms, found 4 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.900 seconds
+Domain Reload Profiling: 1666ms
+	BeginReloadAssembly (225ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (13ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (66ms)
+	RebuildCommonClasses (39ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (32ms)
+	LoadAllAssembliesAndSetupDomain (453ms)
+		LoadAssemblies (396ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (163ms)
+			TypeCache.Refresh (9ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (143ms)
+			ResolveRequiredComponents (9ms)
+	FinalizeReload (900ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (676ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (20ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (85ms)
+			ProcessInitializeOnLoadAttributes (351ms)
+			ProcessInitializeOnLoadMethodAttributes (209ms)
+			AfterProcessingInitializeOnLoad (6ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (10ms)
+Refreshing native plugins compatible for Editor in 5.40 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 5324 unused Assets / (1.5 MB). Loaded Objects now: 5958.
+Memory consumption went from 118.8 MB to 117.2 MB.
+Total: 13.504900 ms (FindLiveObjects: 0.740000 ms CreateObjectMapping: 0.976700 ms MarkObjects: 9.706400 ms  DeleteObjects: 2.080800 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 60.755813 seconds.
+  path: Assets/ImportedAssets/Pixel Art Flower Pack/FLower 5/Flower 5 - BLUE.png
+  artifactKey: Guid(27700c74447994f4a873545a0c45c954) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Pixel Art Flower Pack/FLower 5/Flower 5 - BLUE.png using Guid(27700c74447994f4a873545a0c45c954) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '28ba717e1085dd0e8bbdca0975d57e8d') in 0.079204 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
