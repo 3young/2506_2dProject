@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] MoveToTarget prefabEneymy;
+    [SerializeField] Cat prefabCat;
     [SerializeField] float spawnTime = 1f;
     [SerializeField] Transform target;
 
@@ -12,7 +12,7 @@ public class Spawner : MonoBehaviour
     {
         while(true)
         {
-            var obj = Instantiate(prefabEneymy);
+            var obj = Instantiate(prefabCat);
             var x = Random.Range(-4, 4);
             var y = Random.Range(-4, 4);
             obj.transform.position = new Vector3(x, y);

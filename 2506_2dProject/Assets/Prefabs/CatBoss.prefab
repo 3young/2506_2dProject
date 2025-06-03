@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 413510556514724348}
   - component: {fileID: 3674848105535049362}
   - component: {fileID: 5769767372974733292}
+  - component: {fileID: 7884324989637988387}
   m_Layer: 6
   m_Name: CatBoss
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.81, y: 0, z: 0}
-  m_LocalScale: {x: 12, y: 12, z: 1}
+  m_LocalScale: {x: 10, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -98,13 +99,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 995430934693046760}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f31f5b0a38cfb74cb148253a8f4d595, type: 3}
+  m_Script: {fileID: 11500000, guid: 51a84f2d62c7d2b4284de6f9074ccef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rigid: {fileID: 3674848105535049362}
   target: {fileID: 0}
   velocity: {x: 0, y: 0}
   speed: 0.5
+  spriteRenderer: {fileID: 3184945172753645957}
+  clampedAngle: 0
 --- !u!50 &3674848105535049362
 Rigidbody2D:
   serializedVersion: 4
@@ -192,3 +195,25 @@ PolygonCollider2D:
       - {x: 0.09923523, y: 0.007876285}
       - {x: 0.09995126, y: 0.049235243}
   m_UseDelaunayMesh: 0
+--- !u!95 &7884324989637988387
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995430934693046760}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e968e4bf7ab87fd408b6631d9c35edb9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
