@@ -25,22 +25,6 @@ public class StageController : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        catsAffected = 0;
-        catsNeedToAffected = (stage + 1) * 2;
-    }
-
     public void OnBossAffected()
     {
         stage++;

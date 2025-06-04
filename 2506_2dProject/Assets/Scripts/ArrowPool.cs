@@ -17,7 +17,7 @@ public class ArrowPool : MonoBehaviour
             bullet.gameObject.SetActive(false);
             arrowPool.Enqueue(bullet);
         }
-
+        DontDestroyOnLoad(gameObject);
     }
 
     public Arrow GetArrow()

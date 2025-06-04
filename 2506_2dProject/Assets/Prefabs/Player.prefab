@@ -109,15 +109,15 @@ MonoBehaviour:
   moveSpeed: 3
   attackSpeed: 3
   attackPower: 1
-  prefabBullet: {fileID: 4714205197210937158, guid: ee687fc7a26af724e93faf018fdbbc44, type: 3}
-  maxAmmo: 5
-  bulletPool: {fileID: 0}
-  ammoCounts:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  prefabArrow: {fileID: 4714205197210937158, guid: ee687fc7a26af724e93faf018fdbbc44, type: 3}
+  maxArrow: 5
+  arrowPool: {fileID: 0}
+  arrowCounts:
+  - {fileID: 6884355360317656387, guid: f9289aee78706f64d8d8a66f80d7fa46, type: 3}
+  - {fileID: 7639453207395987836, guid: 5db738272ada4a64ba92806ea3f0b83c, type: 3}
+  - {fileID: 5395938725112383748, guid: 6a17b0244b4101c4bb21f3dab3273f82, type: 3}
+  - {fileID: 2085393602715653757, guid: 29e935d254fa0704ab3fa42cdf393537, type: 3}
+  - {fileID: 3602430781081953464, guid: 87124d16ca4a7044e99069bb6b2f9340, type: 3}
   reloadDelay: 1
   healthBar: {fileID: 0}
   hp: 50

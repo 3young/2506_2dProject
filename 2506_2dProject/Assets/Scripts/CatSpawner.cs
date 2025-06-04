@@ -18,6 +18,12 @@ public class CatSpawner : MonoBehaviour
 
     private bool isBossSpawned = false;
 
+    private void Awake()
+    {
+        GameManager.Instance?.RegisterCatSpawner(this);
+        DontDestroyOnLoad(gameObject);
+    }
+
     private void Start()
     {
         StartCoroutine(nameof(CoSpawnCat));

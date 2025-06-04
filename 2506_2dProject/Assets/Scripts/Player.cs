@@ -17,11 +17,11 @@ public class Player : MonoBehaviour
     //[SerializeField] float criticalRate = 0.2f;
     [SerializeField] Arrow prefabArrow;
     [SerializeField] int maxArrow = 5;
-    [SerializeField] ArrowPool arrowPool;
+    [SerializeField] public ArrowPool arrowPool;
     [SerializeField] Image[] arrowCounts;
     [SerializeField] private float reloadDelay = 1.5f;
 
-    [SerializeField] Image healthBar;
+    [SerializeField] public Image healthBar;
     [SerializeField] float hp = 30f;
     [SerializeField] float maxHp = 30f;
     [SerializeField] float hpRegenerateSpeed = 2f;

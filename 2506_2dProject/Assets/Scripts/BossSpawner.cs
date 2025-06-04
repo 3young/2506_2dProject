@@ -10,6 +10,20 @@ public class BossSpawner : MonoBehaviour
     public Transform target;
     private bool bossSpawned = false;
 
+    private void Awake()
+    {
+        GameManager.Instance?.RegisterBossSpawner(this);
+        DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        if (StageTimerManager.Instance != null)
+        {
+            StageTimerManager.Instance.RegisterSpawner(this);
+        }
+    }
+
     private void OnEnable()
     {
         bossSpawned = false;
@@ -41,6 +55,7 @@ public class BossSpawner : MonoBehaviour
 
     public void ResetSpawner()
     {
-        bossSpawned=false;
+        bossSpawned = false;
     }
+
 }

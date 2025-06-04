@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
+using Scene = UnityEngine.SceneManagement.Scene;
 
 public class StageTimerManager : MonoBehaviour
 {
@@ -20,7 +23,7 @@ public class StageTimerManager : MonoBehaviour
 
     private void Awake()
     {
-        if(Instance != null && Instance != this)
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
@@ -28,6 +31,16 @@ public class StageTimerManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
+
+    private void Start()
+    {
+        if (bossSpawner != null)
+        {
+            OnTimeUpdated.AddListener(UIManager.Instance.UpdateTimerText);
+        }
+
+    }
+
     private void OnEnable()
     {
         if (StageController.Instance != null)
@@ -51,7 +64,7 @@ public class StageTimerManager : MonoBehaviour
         currentStageTime += Time.deltaTime;
         OnTimeUpdated?.Invoke(currentStageTime);
 
-        if(!bossEventFired && currentStageTime >= bossTriggerTime)
+        if (!bossEventFired && currentStageTime >= bossTriggerTime)
         {
             OnBossTimeReached?.Invoke();
             bossEventFired = true;
@@ -62,9 +75,23 @@ public class StageTimerManager : MonoBehaviour
     {
         currentStageTime = 0f;
         bossEventFired = false;
+
+        if (bossSpawner != null)
+        {
+            OnTimeUpdated.RemoveListener(UIManager.Instance.UpdateTimerText);
+            OnTimeUpdated.AddListener(UIManager.Instance.UpdateTimerText);
+        }
+
+        RegisterSpawner(bossSpawner);
+
         OnTimeReset?.Invoke();
     }
 
     public void PauseTimer() => isRunning = false;
     public void ResumeTimer() => isRunning = true;
+
+    public void RegisterSpawner(BossSpawner spawner)
+    {
+        this.bossSpawner = spawner;
+    }
 }
