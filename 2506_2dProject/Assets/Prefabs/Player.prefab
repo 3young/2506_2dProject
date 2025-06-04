@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -83,8 +83,8 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 2}
+  m_DrawMode: 1
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -124,6 +124,7 @@ MonoBehaviour:
   maxHp: 50
   hpRegenerateSpeed: 0.1
   regenDelayAfterHit: 2
+  prefabHitEffect: {fileID: 8697255327069576831, guid: 4a274eeaa11636f45a76a2ec4f772f62, type: 3}
 --- !u!50 &2251556067097494608
 Rigidbody2D:
   serializedVersion: 4
@@ -190,21 +191,21 @@ PolygonCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.32, y: 0.32}
-    newSize: {x: 1, y: 2}
+    newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
-    drawMode: 0
+    drawMode: 1
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.017636338, y: 0.072475486}
-      - {x: -0.06365733, y: 0.03193704}
-      - {x: -0.06279718, y: -0.08462928}
-      - {x: -0.05311887, y: -0.14365733}
-      - {x: 0.050860137, y: -0.14279719}
-      - {x: 0.06139859, y: -0.09043352}
-      - {x: 0.06193703, y: 0.029559568}
-      - {x: 0.05161534, y: 0.08279718}
+    - - {x: -0.1371923, y: 0.4368365}
+      - {x: -0.40524578, y: 0.1799587}
+      - {x: -0.3873062, y: -0.5514668}
+      - {x: -0.24668565, y: -0.87237936}
+      - {x: 0.26150635, y: -0.87721235}
+      - {x: 0.40298703, y: -0.5629642}
+      - {x: 0.38644606, y: -0.05583755}
+      - {x: 0.32488608, y: 0.5268622}
   m_UseDelaunayMesh: 0
 --- !u!95 &3801234162054064856
 Animator:

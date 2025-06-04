@@ -15,10 +15,10 @@ public class Player : MonoBehaviour
     [SerializeField] public int attackPower = 1;
     //[SerializeField] int criticalPower = 2;
     //[SerializeField] float criticalRate = 0.2f;
-    [SerializeField] Bullet2D prefabBullet;
-    [SerializeField] int maxAmmo = 5;
-    [SerializeField] BulletPool bulletPool;
-    [SerializeField] Image[] ammoCounts;
+    [SerializeField] Arrow prefabArrow;
+    [SerializeField] int maxArrow = 5;
+    [SerializeField] ArrowPool arrowPool;
+    [SerializeField] Image[] arrowCounts;
     [SerializeField] private float reloadDelay = 1.5f;
 
     [SerializeField] Image healthBar;
@@ -26,18 +26,21 @@ public class Player : MonoBehaviour
     [SerializeField] float maxHp = 30f;
     [SerializeField] float hpRegenerateSpeed = 2f;
     [SerializeField] float regenDelayAfterHit = 2f;
+    [SerializeField] GameObject prefabHitEffect;
 
 
     private float attackCooldown = 0f;
-    private int currentAmmo = 0;
+    private int currentArrow = 0;
     private float reloadTimer;
     private bool isFiring;
     private float lastHitTime = -999f;
+    private bool isCollidingWithCat = false;
+    private Coroutine damageCoroutine;
 
     private void Start()
     {
         transform.rotation = Quaternion.identity;
-        currentAmmo = maxAmmo;
+        currentArrow = maxArrow;
         isFiring = false;
         hp = maxHp;
     }
@@ -49,34 +52,34 @@ public class Player : MonoBehaviour
         velocity = new Vector2(x, y);
         attackCooldown -= Time.deltaTime;
 
-        if (Input.GetMouseButton(0) && attackCooldown <= 0 && currentAmmo > 0)
+        if (Input.GetMouseButton(0) && attackCooldown <= 0 && currentArrow > 0)
         {
             isFiring = true;
             attackCooldown = 1 / attackSpeed;
-            currentAmmo--;
-            UpdateAmmoUI();
+            currentArrow--;
+            UpdateArrowUI();
 
             Vector3 mouseWorldPos = UnityEngine.Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 dir = mouseWorldPos - transform.position;
             dir.z = 0;
 
-            var bullet = bulletPool.GetBullet();
-            bullet.transform.position = transform.position;
-            bullet.transform.rotation = Quaternion.LookRotation(Vector3.forward, dir.normalized);
-            bullet.Fire(dir.normalized * 5f, bulletPool);
+            var arrow = arrowPool.GetArrow();
+            arrow.transform.position = transform.position;
+            arrow.transform.rotation = Quaternion.LookRotation(Vector3.forward, dir.normalized);
+            arrow.Fire(dir.normalized * 5f, arrowPool);
         }
         else
         {
             isFiring = false;
 
-            if (!isFiring && currentAmmo < maxAmmo)
+            if (!isFiring && currentArrow < maxArrow)
             {
                 reloadTimer += Time.deltaTime;
 
                 if (reloadTimer >= reloadDelay)
                 {
-                    currentAmmo++;
-                    UpdateAmmoUI();
+                    currentArrow++;
+                    UpdateArrowUI();
                     reloadTimer = 0f;
                 }
             }
@@ -119,14 +122,24 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Cat"))
         {
-            hp -= 5f;
-            lastHitTime = Time.time;
-
-            if (hp <= 0)
+            if(!isCollidingWithCat)
             {
-                Destroy(gameObject);
+                isCollidingWithCat = true;
+                damageCoroutine = StartCoroutine(nameof(CoDamageOverTime));
             }
-            UpdateHealthUI();
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Cat"))
+        {
+            isCollidingWithCat = false;
+            if (damageCoroutine != null)
+            {
+                StopCoroutine(nameof(CoDamageOverTime));
+                damageCoroutine = null;
+            }
         }
     }
 
@@ -135,11 +148,11 @@ public class Player : MonoBehaviour
         healthBar.fillAmount = hp / maxHp;
     }
 
-    private void UpdateAmmoUI()
+    private void UpdateArrowUI()
     {
-        for (int i = 0; i < ammoCounts.Length; i++)
+        for (int i = 0; i < arrowCounts.Length; i++)
         {
-            ammoCounts[i].enabled = i < currentAmmo;
+            arrowCounts[i].enabled = i < currentArrow;
         }
     }
 
@@ -153,5 +166,34 @@ public class Player : MonoBehaviour
             hp = Mathf.Min(hp, maxHp);
             UpdateHealthUI();
         }
+    }
+
+    private IEnumerator CoDamageOverTime()
+    {
+        while(isCollidingWithCat)
+        {
+            TakeDamage(3f);
+            yield return new WaitForSeconds(1f);
+        }
+    }
+
+    public void TakeDamage(float amount)
+    {
+        hp -= amount;
+        lastHitTime = Time.time;
+
+        if (hp <= 0)
+        {
+            Die();
+            return;
+        }
+        Instantiate(prefabHitEffect, transform.position, Quaternion.identity);
+        UpdateHealthUI();
+    }
+
+    private void Die()
+    {
+        GameEvents.OnPlayerDie?.Invoke();
+        Destroy(gameObject);
     }
 }
