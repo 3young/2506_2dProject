@@ -10,6 +10,9 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] public Image hpImage;
     [SerializeField] TMPro.TextMeshProUGUI txtTimer;
+    [SerializeField] Image[] arrowUIImages;
+
+    public Image[] ArrowUIImages => arrowUIImages;
 
     private void Awake()
     {

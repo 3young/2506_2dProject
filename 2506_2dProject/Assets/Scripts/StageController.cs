@@ -22,9 +22,10 @@ public class StageController : MonoBehaviour
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(gameObject);
     }
 
+    [ContextMenu(nameof(OnBossAffected))]
     public void OnBossAffected()
     {
         stage++;
@@ -35,5 +36,12 @@ public class StageController : MonoBehaviour
         {
             SceneManager.LoadScene(nextSceneIndex);
         }
+    }
+
+    public void ResetStage()
+    {
+        stage = 0;
+        catsAffected = 0;
+        OnStageChanged?.Invoke(stage);
     }
 }

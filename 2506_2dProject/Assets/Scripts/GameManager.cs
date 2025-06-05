@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,12 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] Player prefabPlayer;
     [SerializeField] ArrowPool arrowPool;
+    [SerializeField] BossSpawner prefabBossSpawner;
+    [SerializeField] CatSpawner prefabCatSpawner;
+    [SerializeField] CinemachineVirtualCamera virtualCamera;
+    [SerializeField] StageController prefabStageController;
+
+    private StageController stageController;
 
     private BossSpawner bossSpawner;
     private CatSpawner catSpawner;
@@ -23,13 +30,22 @@ public class GameManager : MonoBehaviour
         if(Instance != null && Instance != this)
         {
             Destroy(gameObject);
+            Destroy(virtualCamera.gameObject);
             return;
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(virtualCamera.gameObject);
+
+        if(StageController.Instance == null)
+        {
+            stageController = Instantiate(prefabStageController);
+            DontDestroyOnLoad (stageController.gameObject);
+        }
 
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
+
 
     private void OnDestroy()
     {
@@ -38,21 +54,93 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        InstantiateSpawners();
         SpawnAndSetupPlayer();
+
+        if (StageController.Instance != null && catSpawner != null)
+        {
+            StageController.Instance.OnStageChanged.RemoveListener(catSpawner.SetStage);
+            StageController.Instance.OnStageChanged.AddListener(catSpawner.SetStage);
+
+            catSpawner.SetStage(StageController.Instance.stage);
+        }
+
+        if (virtualCamera != null && CurrentPlayer != null)
+        {
+            virtualCamera.Follow = CurrentPlayer.transform;
+        }
+
+        var confinder = virtualCamera.GetComponent<CinemachineConfiner2D>();
+        var cameraArea = GameObject.FindWithTag("CameraArea")?.GetComponent<PolygonCollider2D>();
+
+        if (confinder != null && cameraArea != null)
+        {
+            var collider = cameraArea.GetComponent<Collider2D>();
+            confinder.m_BoundingShape2D = collider;
+            confinder.InvalidateCache();
+        }
+
+        var limiter = CurrentPlayer.GetComponent<PlayerBoundsLimiter>();
+        if (limiter != null)
+        {
+            limiter.SetBounds(cameraArea);
+        }
     }
 
+    private void InstantiateSpawners()
+    {
+        if (catSpawner != null && bossSpawner != null) return;
+
+        if (bossSpawner == null)
+        {
+            bossSpawner = Instantiate(prefabBossSpawner);
+            RegisterBossSpawner(bossSpawner);
+
+            if(StageTimerManager.Instance != null)
+            {
+                StageTimerManager.Instance.RegisterSpawner(bossSpawner);
+            }
+        }
+
+        if (catSpawner == null)
+        {
+            catSpawner = Instantiate(prefabCatSpawner);
+            RegisterCatSpawner(catSpawner);
+        }
+    }
     private void SpawnAndSetupPlayer()
     {
+
         if (CurrentPlayer != null) Destroy(CurrentPlayer.gameObject);
 
         var spawnPos = Vector3.zero;
         CurrentPlayer = Instantiate(prefabPlayer, spawnPos, Quaternion.identity);
 
-        CurrentPlayer.arrowPool = arrowPool;
-        CurrentPlayer.healthBar = UIManager.Instance?.hpImage;
+        
+        var attack = CurrentPlayer.GetComponent<PlayerAttack>();
+        if (attack != null)
+        {
+            attack.arrowPool = arrowPool;
+            attack.arrowCounts = UIManager.Instance.ArrowUIImages;
+        }
+
+        var health = CurrentPlayer.GetComponent<PlayerHealth>();
+
+        if (virtualCamera != null)
+        {
+            virtualCamera.Follow = CurrentPlayer.transform;
+        }
+
+        if (health != null)
+        {
+            health.healthBar = UIManager.Instance?.hpImage;
+            health.ResetHealth();
+        }
 
         if (catSpawner != null) catSpawner.target = CurrentPlayer.transform;
         if (bossSpawner != null) bossSpawner.target = CurrentPlayer.transform;
+
+        isGameOver = false;
     }
 
     private void OnEnable()
@@ -77,6 +165,7 @@ public class GameManager : MonoBehaviour
         totalCatAffected = 0;
 
         SceneManager.sceneLoaded += OnSceneLoadedAfterGameOver;   
+        StageController.Instance?.ResetStage();
         SceneManager.LoadScene(0);
     }
 
