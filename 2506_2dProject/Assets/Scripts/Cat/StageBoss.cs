@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class StageBoss : Cat
 {
+    [SerializeField] string bossName;
+
     [SerializeField] float attackInterval = 3f;
     [SerializeField] float attackRange = 3f;
     [SerializeField] int attackPower = 5;
@@ -14,7 +16,23 @@ public class StageBoss : Cat
 
     private float attackTimer;
     private HashSet<Cat> buffedCats = new HashSet<Cat>();
+    private float bossBaseHp = 20f;
 
+    BossHPUI bossUI;
+
+    protected override void Start()
+    {
+        base.Start();
+        maxHp = bossBaseHp * level;
+        currentHp = maxHp;
+        bossUI = UIManager.Instance.BossHPUI;
+        bossUI.Setup(bossName, maxHp);
+
+        OnHpChanged.AddListener((currentHp, maxHp) =>
+        {
+            bossUI.UpdateHP(currentHp);
+        });
+    }
 
     private void Update()
     {
@@ -26,6 +44,11 @@ public class StageBoss : Cat
         }
 
         ApplyBuffToNearByCats();
+    }
+
+    public override void TakeDamage(int damage)
+    {
+        base.TakeDamage(damage);
     }
 
     private void PerformAttack()
@@ -71,8 +94,10 @@ public class StageBoss : Cat
     public override void Captivated()
     {
         base.Captivated();
+        bossUI.Hide();
         GameEvents.OnBossCaptivated?.Invoke();
     }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
@@ -81,5 +106,4 @@ public class StageBoss : Cat
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, buffRange);
     }
-
 }

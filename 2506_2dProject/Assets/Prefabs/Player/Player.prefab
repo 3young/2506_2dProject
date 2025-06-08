@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4165569854364124301}
   - component: {fileID: 5291050379712783945}
   - component: {fileID: 4785645470645298335}
+  - component: {fileID: -1309613096607612583}
   - component: {fileID: -2191460950071616605}
   - component: {fileID: 7151339377436925000}
   - component: {fileID: 4724908031598045400}
@@ -20,7 +21,7 @@ GameObject:
   - component: {fileID: 3801234162054064856}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,9 +107,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef35c5a512ca91c49b6cbac7363845e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats: {fileID: -1309613096607612583}
   attack: {fileID: -2191460950071616605}
   movement: {fileID: 4724908031598045400}
   health: {fileID: 7151339377436925000}
+--- !u!114 &-1309613096607612583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5529489484978255754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3de0743bac334f64fad7e7c9e640c138, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseExp: 20
+  levelExp: 5
+  OnExpChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  OnLevelUp:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &-2191460950071616605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,13 +143,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82172b677acfd36429bcc14619f00142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSpeed: 2
+  attackSpeed: 5
   attackPower: 2
   prefabArrow: {fileID: 4714205197210937158, guid: ee687fc7a26af724e93faf018fdbbc44, type: 3}
   maxArrow: 5
   arrowPool: {fileID: 0}
   arrowCounts: []
-  reloadDelay: 1.5
+  reloadDelay: 1
   isFiring: 0
 --- !u!114 &7151339377436925000
 MonoBehaviour:

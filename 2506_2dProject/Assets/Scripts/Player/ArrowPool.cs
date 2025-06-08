@@ -1,43 +1,69 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class ArrowPool : MonoBehaviour
 {
-    [SerializeField] Arrow arrowPrefab;
-    [SerializeField] int poolSize = 20;
+    public static ArrowPool Instance { get; private set; }
 
-    private Queue<Arrow> arrowPool = new Queue<Arrow>();
+    [SerializeField] Arrow arrowPrefab;
+    [SerializeField] int defaultCapacity = 20;
+    [SerializeField] int maxSize = 40;
+
+    private ObjectPool<Arrow> pool;
 
     private void Awake()
     {
-        for (int i = 0; i < poolSize; i++)
+        if(Instance != null && Instance != this)
         {
-            var bullet = Instantiate(arrowPrefab, transform);
-            bullet.gameObject.SetActive(false);
-            arrowPool.Enqueue(bullet);
+            Destroy(gameObject);
+            return;
         }
+
+        Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        pool = new ObjectPool<Arrow>
+        (
+            CreateFunc,
+            OnGet,
+            OnRelease,
+            OnDestroyPoolObject,
+            true,
+            defaultCapacity,
+            maxSize
+        );
+    }
+
+    private Arrow CreateFunc()
+    {
+        var arrow = Instantiate(arrowPrefab, transform);
+        return arrow;
+    }
+
+    private void OnGet(Arrow arrow)
+    {
+        arrow.gameObject.SetActive(true);
+    }
+
+    private void OnRelease(Arrow arrow)
+    {
+        arrow.gameObject.SetActive(false);
+    }
+
+    private void OnDestroyPoolObject(Arrow arrow)
+    {
+        Destroy(arrow.gameObject);
     }
 
     public Arrow GetArrow()
     {
-        if (arrowPool.Count > 0)
-        {
-            var arrow = arrowPool.Dequeue();
-            arrow.gameObject.SetActive(true);
-            return arrow;
-        }
-        else
-        {
-            var arrow = Instantiate(arrowPrefab, transform);
-            return arrow;
-        }
+        return pool.Get();
     }
 
     public void ReturnArrow(Arrow arrow)
     {
-        arrow.gameObject.SetActive(false);
-        arrowPool.Enqueue(arrow);
+        pool.Release(arrow);
     }
+
+    public IObjectPool<Arrow> Pool => pool;
 }

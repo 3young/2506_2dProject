@@ -107,12 +107,13 @@ MonoBehaviour:
   speed: 1
   spriteRenderer: {fileID: 2759733958573205950}
   level: 1
-  baseHp: 9
+  baseHp: 5
   levelHp: 5
   OnHpChanged:
     m_PersistentCalls:
       m_Calls: []
   prefabCatHPUI: {fileID: 1281558246223973433, guid: 32157b1f4f8dea04c93b635ec36bd1e0, type: 3}
+  prefabItems: []
   clampedAngle: 0
   currentHp: 0
   maxHp: 0

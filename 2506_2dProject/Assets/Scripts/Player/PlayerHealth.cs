@@ -38,6 +38,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void UpdateHealthUI()
     {
+        if (healthBar == null) return;
         healthBar.fillAmount = hp / maxHp;
     }
 
@@ -99,5 +100,12 @@ public class PlayerHealth : MonoBehaviour
             TakeDamage(3f);
             yield return new WaitForSeconds(1f);
         }
+    }
+
+    public void GainHp(float amount)
+    {
+        hp += amount;
+        hp = Mathf.Min(hp, maxHp);
+        UpdateHealthUI();
     }
 }

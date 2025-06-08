@@ -6,30 +6,40 @@ using UnityEngine;
 public class CatSpawner : MonoBehaviour
 {
     [SerializeField] Cat[] prefabsCat;
+    [SerializeField] float baseSpawnInterval = 2f;
 
     public Transform target;
-    public float spawnInterval = 2f;
-    public float spawnIntervalDecay = 0.9f;
 
-    private int stage;
+    public float spawnInterval;
+    public float spawnIntervalDecay = 0.95f;
 
     private float difficultyTimer = 0f;
     private float difficultyInterval = 10f;
 
+    private int stage;
     private bool isBossSpawned = false;
+
+    private Coroutine spawnCoroutine;
 
     private void Start()
     {
-        StartCoroutine(nameof(CoSpawnCat));
+        spawnInterval = baseSpawnInterval;
+
         if (StageController.Instance != null)
         {
-            Debug.Log("[CatSpawner] Registering UpdateStage()");
             StageController.Instance.OnStageChanged.AddListener(UpdateStage);
         }
 
         if(StageTimerManager.Instance != null)
         {
             StageTimerManager.Instance.OnBossTimeReached.AddListener(HandleBossSpawned);
+        }
+    }
+    private void OnDisable()
+    {
+        if (StageController.Instance != null)
+        {
+            StageController.Instance.OnStageChanged.RemoveListener(UpdateStage);
         }
     }
 
@@ -45,18 +55,27 @@ public class CatSpawner : MonoBehaviour
         }
     }
 
-    private void OnDisable()
-    {
-        if (StageController.Instance != null)
-        {
-            StageController.Instance.OnStageChanged.RemoveListener(UpdateStage);
-        }
-    }
 
-    private void UpdateStage(int newStage)
+    public void UpdateStage(int newStage)
     {
         stage = newStage;
         isBossSpawned = false;
+
+        spawnInterval = baseSpawnInterval;
+        difficultyTimer = 0;
+
+        if(spawnCoroutine != null)
+        {
+            StopCoroutine(spawnCoroutine);
+            spawnCoroutine = null;
+        }
+
+        if(stage == StageController.Instance.maxStage - 1)
+        {
+            return;
+        }
+
+        spawnCoroutine = StartCoroutine(CoSpawnCat());
     }
 
     private void HandleBossSpawned()
@@ -66,17 +85,22 @@ public class CatSpawner : MonoBehaviour
 
     IEnumerator CoSpawnCat()
     {
+        yield return new WaitForSeconds(spawnInterval);
+
         while(true)
         {
             if(!isBossSpawned) SpawnRandomCat();
+
             yield return new WaitForSeconds(spawnInterval);
         }
     }
 
     private void SpawnRandomCat()
     {
-        int maxIndex = Mathf.Clamp(stage, 0, prefabsCat.Length - 1);
-        int index = Random.Range(0, maxIndex + 1);
+        int clampedStage = Mathf.Clamp(stage, 0, prefabsCat.Length-1);
+        int index = Random.Range(0, clampedStage + 1);
+
+        if (prefabsCat[index] == null) return;
 
         var obj = Instantiate(prefabsCat[index]);
 
@@ -85,11 +109,5 @@ public class CatSpawner : MonoBehaviour
         
         obj.transform.position = new Vector3(x, y, 0f);
         obj.target = target;
-    }
-
-    public void SetStage(int newStage)
-    {
-        stage = newStage;
-        isBossSpawned = false;
     }
 }

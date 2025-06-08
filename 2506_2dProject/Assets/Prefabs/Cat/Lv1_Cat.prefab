@@ -107,7 +107,7 @@ MonoBehaviour:
   speed: 1
   spriteRenderer: {fileID: 8973209283843537077}
   level: 1
-  baseHp: 3
+  baseHp: 5
   levelHp: 5
   OnHpChanged:
     m_PersistentCalls:

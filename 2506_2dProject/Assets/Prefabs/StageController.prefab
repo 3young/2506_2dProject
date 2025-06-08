@@ -45,7 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf47090822793b41b13bd9d8d11c5bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: 0
+  startBattleButtonUI: {fileID: 0}
+  currentStage: 0
+  maxStage: 5
   catsAffected: 0
   catsNeedToAffected: 5
   OnStageChanged:
@@ -63,7 +65,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc7d133b419471e49a3d4816eb85829e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossSpawner: {fileID: 0}
+  bossSpawner: {fileID: 4985681094912061719, guid: 81c9364b15dea48469ca6a7f9debf75d, type: 3}
   currentStageTime: 0
   OnTimeUpdated:
     m_PersistentCalls:

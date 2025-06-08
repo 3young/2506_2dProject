@@ -49,5 +49,6 @@ MonoBehaviour:
   - {fileID: 865038755319731368, guid: bfc81870ad7686f45b85ca62c4fa66cb, type: 3}
   - {fileID: 865038755319731368, guid: 3a8657e6c6d850a4f8690e9f8a78434f, type: 3}
   - {fileID: 865038755319731368, guid: 2846a43db5c83824b9e2728be91f1d98, type: 3}
+  - {fileID: -6984328216760875433, guid: ee3e5893aa358bd44b27832f0181db10, type: 3}
   spawnPoint: {fileID: 7539507640645979679}
   target: {fileID: 0}

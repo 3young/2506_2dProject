@@ -33,10 +33,16 @@ public class BossSpawner : MonoBehaviour
     {
         if (bossSpawned) return;
 
-        var obj = Instantiate(prefabBoss[StageController.Instance.stage], spawnPoint.position, Quaternion.identity);
+        int index = Mathf.Clamp(StageController.Instance.currentStage, 0, prefabBoss.Length - 1);
+        var obj = Instantiate(prefabBoss[index], spawnPoint.position, Quaternion.identity);
         bossSpawned = true;
 
         obj.target = target;
+
+        if(obj is FinalBoss finalBoss)
+        {
+            GameManager.Instance.RegisterBoss(finalBoss);
+        }
     }
 
     public void ResetSpawner()

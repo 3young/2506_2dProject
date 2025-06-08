@@ -44,8 +44,9 @@ public class PlayerAttack : MonoBehaviour
 
             var arrow = arrowPool.GetArrow();
             arrow.transform.position = transform.position;
+
             arrow.transform.rotation = Quaternion.LookRotation(Vector3.forward, dir.normalized);
-            arrow.Fire(dir.normalized * 5f, arrowPool, attackPower);
+            arrow.Fire(dir.normalized * 5f, arrowPool.Pool, attackPower);
         }
         else
         {

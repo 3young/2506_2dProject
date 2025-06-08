@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -8,7 +6,11 @@ public class StageController : MonoBehaviour
 {
     public static StageController Instance { get; private set; }
 
-    public int stage = 1;
+    public GameObject finalBossSpawnBtn;
+
+    public int currentStage = 0;
+    public int maxStage = 5;
+
     public int catsAffected = 0;
     public int catsNeedToAffected;
 
@@ -28,20 +30,64 @@ public class StageController : MonoBehaviour
     [ContextMenu(nameof(OnBossAffected))]
     public void OnBossAffected()
     {
-        stage++;
-        OnStageChanged?.Invoke(stage);
+        int catCount = GameManager.Instance.totalCatAffected;
+        float clearTime = StageTimerManager.Instance?.currentStageTime ?? 0f;
+        int score = ScoreCalculator.Calculate(catCount, clearTime);
+        int timeBonus = ScoreCalculator.GetTimeBonus(clearTime);
 
-        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-        if(nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        bool isFinal = (currentStage >= maxStage - 1);
+
+        UIManager.Instance.StageResultUI.Show(currentStage + 1, catCount, clearTime, score, timeBonus, isFinal);
+    }
+    public void ProceedToNextStage()
+    {
+        currentStage++;
+
+        if (currentStage >= maxStage)
         {
-            SceneManager.LoadScene(nextSceneIndex);
+            GameManager.Instance.WinGame();
+            return;
+        }
+
+        catsAffected = 0;
+        OnStageChanged?.Invoke(currentStage);
+        string nextSceneName = $"Stage{currentStage+1}";
+        SceneManager.LoadScene(nextSceneName);
+    }
+
+    public void StartStage()
+    {
+        if(currentStage < maxStage - 1)
+        {
+            catsAffected = 0;
+            OnStageChanged?.Invoke(currentStage);
+            StageTimerManager.Instance?.StartTimer();
+        }
+
+        else if(currentStage == maxStage - 1)
+        {
+            finalBossSpawnBtn?.SetActive(true);
+            catsAffected = 0;
+            StageTimerManager.Instance?.PauseTimer();
+            OnStageChanged?.Invoke(currentStage);
         }
     }
 
     public void ResetStage()
     {
-        stage = 0;
+        currentStage = 0;
         catsAffected = 0;
-        OnStageChanged?.Invoke(stage);
+        OnStageChanged?.Invoke(currentStage);
+    }
+
+    public void OnSpawnBossButtonClicked()
+    {
+        if(finalBossSpawnBtn != null)
+        {
+            finalBossSpawnBtn.SetActive(false);
+        }
+
+        GameManager.Instance?.ForceSpawnFinalBoss();
+        StageTimerManager.Instance?.StartTimer();
     }
 }

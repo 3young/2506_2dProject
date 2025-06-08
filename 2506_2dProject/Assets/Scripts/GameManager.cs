@@ -3,27 +3,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    [Header("Prefabs")]
     [SerializeField] Player prefabPlayer;
-    [SerializeField] ArrowPool arrowPool;
+    [SerializeField] CinemachineVirtualCamera virtualCamera;
+
+    [Header("Spawn")]
     [SerializeField] BossSpawner prefabBossSpawner;
     [SerializeField] CatSpawner prefabCatSpawner;
-    [SerializeField] CinemachineVirtualCamera virtualCamera;
+    [SerializeField] ArrowPool arrowPool;
     [SerializeField] StageController prefabStageController;
 
-    private StageController stageController;
+    [SerializeField] Button finalBossSpawnBtn;
 
+    private StageController stageController;
     private BossSpawner bossSpawner;
     private CatSpawner catSpawner;
-
+    
     public int totalCatAffected = 0;
     public bool isGameOver = false;
     private bool isPaused = false;
+
+    public int savedPlayerLevel = 1;
+    public float savedPlayerExp = 0f;
+    public float finalBossClearTime = 0f;
+
     public Player CurrentPlayer { get; private set; }
+    public FinalBoss CurrentBoss { get; private set; }
 
     private void Awake()
     {
@@ -46,7 +57,14 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            Debug.Log("임시 보스 버튼 강제 호출!");
+            StageController.Instance.OnSpawnBossButtonClicked();
+        }
+    }
     private void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
@@ -54,36 +72,51 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        if (scene.name == "ResultScene") return;
+
         InstantiateSpawners();
         SpawnAndSetupPlayer();
 
         if (StageController.Instance != null && catSpawner != null)
         {
-            StageController.Instance.OnStageChanged.RemoveListener(catSpawner.SetStage);
-            StageController.Instance.OnStageChanged.AddListener(catSpawner.SetStage);
-
-            catSpawner.SetStage(StageController.Instance.stage);
+            StageController.Instance.OnStageChanged.RemoveListener(catSpawner.UpdateStage);
+            StageController.Instance.OnStageChanged.AddListener(catSpawner.UpdateStage);
+            StageController.Instance.OnStageChanged?.Invoke(StageController.Instance.currentStage);
         }
 
+        if(finalBossSpawnBtn != null)
+        {
+            StageController.Instance.finalBossSpawnBtn = finalBossSpawnBtn.gameObject;
+            finalBossSpawnBtn.gameObject.SetActive(false);
+
+            finalBossSpawnBtn.onClick.RemoveAllListeners();
+            finalBossSpawnBtn.onClick.AddListener(StageController.Instance.OnSpawnBossButtonClicked);
+        }
+
+        SetupCamera();
+        StageController.Instance?.StartStage();
+    }
+
+    private void SetupCamera()
+    {
         if (virtualCamera != null && CurrentPlayer != null)
         {
             virtualCamera.Follow = CurrentPlayer.transform;
-        }
+            var confinder = virtualCamera.GetComponent<CinemachineConfiner2D>();
+            var cameraArea = GameObject.FindWithTag("CameraArea")?.GetComponent<PolygonCollider2D>();
 
-        var confinder = virtualCamera.GetComponent<CinemachineConfiner2D>();
-        var cameraArea = GameObject.FindWithTag("CameraArea")?.GetComponent<PolygonCollider2D>();
+            if (confinder != null && cameraArea != null)
+            {
+                var collider = cameraArea.GetComponent<Collider2D>();
+                confinder.m_BoundingShape2D = collider;
+                confinder.InvalidateCache();
+            }
 
-        if (confinder != null && cameraArea != null)
-        {
-            var collider = cameraArea.GetComponent<Collider2D>();
-            confinder.m_BoundingShape2D = collider;
-            confinder.InvalidateCache();
-        }
-
-        var limiter = CurrentPlayer.GetComponent<PlayerBoundsLimiter>();
-        if (limiter != null)
-        {
-            limiter.SetBounds(cameraArea);
+            var limiter = CurrentPlayer.GetComponent<PlayerBoundsLimiter>();
+            if (limiter != null)
+            {
+                limiter.SetBounds(cameraArea);
+            }
         }
     }
 
@@ -116,6 +149,11 @@ public class GameManager : MonoBehaviour
         var spawnPos = Vector3.zero;
         CurrentPlayer = Instantiate(prefabPlayer, spawnPos, Quaternion.identity);
 
+        var stats = CurrentPlayer.GetComponent<PlayerStats>();
+        if(stats != null)
+        {
+            stats.LoadFromGameManager();
+        }
         
         var attack = CurrentPlayer.GetComponent<PlayerAttack>();
         if (attack != null)
@@ -131,7 +169,7 @@ public class GameManager : MonoBehaviour
             virtualCamera.Follow = CurrentPlayer.transform;
         }
 
-        if (health != null)
+        if (health != null && UIManager.Instance != null)
         {
             health.healthBar = UIManager.Instance?.hpImage;
             health.ResetHealth();
@@ -163,6 +201,8 @@ public class GameManager : MonoBehaviour
         print("Game Over!");
 
         totalCatAffected = 0;
+        ResetSavedStats();
+        UIManager.Instance.BossHPUI.Hide();
 
         SceneManager.sceneLoaded += OnSceneLoadedAfterGameOver;   
         StageController.Instance?.ResetStage();
@@ -179,6 +219,18 @@ public class GameManager : MonoBehaviour
     private void HandleBossCaptivated()
     {
         StageController.Instance.OnBossAffected();
+    }
+
+    public void SaveStatsFromPlayer(PlayerStats stats)
+    {
+        savedPlayerLevel = stats.Level;
+        savedPlayerExp = stats.CurrentExp;
+    }
+
+    public void ResetSavedStats()
+    {
+        savedPlayerLevel = 1;
+        savedPlayerExp = 0f;
     }
 
     public void OnPauseGame()
@@ -210,4 +262,42 @@ public class GameManager : MonoBehaviour
     {
         catSpawner = spawner;
     }
+
+    public void RegisterBoss(FinalBoss boss)
+    {
+        CurrentBoss = boss;
+    }
+
+    public void ForceSpawnFinalBoss()
+    {
+        if(bossSpawner != null)
+        {
+            bossSpawner.SpawnBoss();
+        }
+    }
+
+    public void WinGame()
+    {
+        if (isGameOver) return;
+
+        isGameOver = true;
+
+        if(CurrentPlayer != null)
+        {
+            var stats = CurrentPlayer.GetComponent<PlayerStats>();
+            if (stats != null)
+            {
+                SaveStatsFromPlayer(stats);
+            }
+        }
+
+        finalBossClearTime = StageTimerManager.Instance?.currentStageTime ?? 0f;
+
+        int catCount = totalCatAffected;
+        float time = finalBossClearTime;
+        int score = ScoreCalculator.Calculate(catCount, time);
+
+        SceneManager.LoadScene("ResultScene");
+    } 
+
 }

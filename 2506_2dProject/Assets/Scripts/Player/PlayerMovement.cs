@@ -12,10 +12,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void HandleInput()
     {
-        var x = Input.GetAxis("Horizontal");
-        var y = Input.GetAxis("Vertical");
-        velocity = new Vector2(x, y);
-
+        var input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        velocity = input.normalized;
 
         UpdateState();
     }

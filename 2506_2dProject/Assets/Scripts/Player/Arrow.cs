@@ -1,22 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.Pool;
 
 public class Arrow : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rigid;
 
-    private float lifeTime = 2.5f;
-    private ArrowPool bulletPool;
-    private Cat cat;
-    private int attackPower;
+    private IObjectPool<Arrow> arrowPool;
 
-    public void Fire(Vector2 dir, ArrowPool bulletPool, int attackPower)
+    private float lifeTime = 2.5f;
+    private int attackPower;
+    private bool isReturned = false;
+
+    public void Fire(Vector2 dir, IObjectPool<Arrow> arrowPool, int attackPower)
     {
         rigid.velocity = dir;
-        this.bulletPool = bulletPool;
+        this.arrowPool = arrowPool;
         this.attackPower = attackPower;
+        isReturned = false;
 
         CancelInvoke();
         Invoke(nameof(ReturnToPool), lifeTime);
@@ -24,7 +24,10 @@ public class Arrow : MonoBehaviour
 
     private void ReturnToPool()
     {
-        bulletPool.ReturnArrow(this);
+        if (isReturned) return;
+        isReturned = true;
+
+        arrowPool.Release(this);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -37,5 +40,10 @@ public class Arrow : MonoBehaviour
             }
             ReturnToPool();
         }
+    }
+
+    private void OnDisable()
+    {
+        CancelInvoke();
     }
 }

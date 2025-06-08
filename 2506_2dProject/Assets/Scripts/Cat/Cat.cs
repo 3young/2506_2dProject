@@ -11,7 +11,7 @@ public class Cat : MonoBehaviour
     [SerializeField] protected float speed = 1f;
     [SerializeField] protected SpriteRenderer spriteRenderer;
 
-    [SerializeField] int level = 1;
+    [SerializeField] protected int level = 1;
     [SerializeField] float baseHp = 5f;
     [SerializeField] int levelHp = 5;
 
@@ -44,7 +44,7 @@ public class Cat : MonoBehaviour
         OnHpChanged.Invoke(currentHp, baseHp);
     }
 
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         currentHp -= damage;
         currentHp = Mathf.Max(0, currentHp);
@@ -63,7 +63,7 @@ public class Cat : MonoBehaviour
         {
             Destroy(catHPUI.gameObject);
         }
-
+        GameManager.Instance.totalCatAffected++;
         GameEvents.OnCatCaptivated?.Invoke();
         Destroy(gameObject);
 
@@ -89,7 +89,9 @@ public class Cat : MonoBehaviour
         if (prefabItems.Length == 0) return;
 
         int index = Random.Range(0, prefabItems.Length);
-        Instantiate(prefabItems[index], transform.position, Quaternion.identity);
+        Vector3 dropPos = transform.position;
+        var item = Instantiate(prefabItems[index], dropPos, Quaternion.identity);
+        print($"[DROP] {item.name} at {dropPos}");
     }
 
 }

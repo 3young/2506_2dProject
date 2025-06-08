@@ -17,7 +17,7 @@ public class StageTimerManager : MonoBehaviour
     public UnityEvent OnTimeReset;
     public UnityEvent OnBossTimeReached;
 
-    private float bossTriggerTime = 10f;
+    private float bossTriggerTime = 60f;
     private bool bossEventFired = false;
     private bool isRunning = true;
 
@@ -93,5 +93,15 @@ public class StageTimerManager : MonoBehaviour
     public void RegisterSpawner(BossSpawner spawner)
     {
         this.bossSpawner = spawner;
+    }
+
+    public void StartTimer()
+    {
+        currentStageTime = 0f;
+        bossEventFired = false;
+        isRunning = true;
+
+        OnTimeReset?.Invoke();
+        OnTimeUpdated?.Invoke(currentStageTime);
     }
 }
