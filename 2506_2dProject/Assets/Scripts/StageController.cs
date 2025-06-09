@@ -57,7 +57,9 @@ public class StageController : MonoBehaviour
 
     public void StartStage()
     {
-        if(currentStage < maxStage - 1)
+        ArrowPool.Instance.ClearAllArrows();
+
+        if (currentStage < maxStage - 1)
         {
             catsAffected = 0;
             OnStageChanged?.Invoke(currentStage);

@@ -1,3 +1,4 @@
+using System.Buffers.Text;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 public class StageBoss : Cat
 {
     [SerializeField] string bossName;
+    [SerializeField] float bossBaseHp = 10f;
 
     [SerializeField] float attackInterval = 3f;
     [SerializeField] float attackRange = 3f;
@@ -16,13 +18,13 @@ public class StageBoss : Cat
 
     private float attackTimer;
     private HashSet<Cat> buffedCats = new HashSet<Cat>();
-    private float bossBaseHp = 20f;
 
     BossHPUI bossUI;
 
     protected override void Start()
     {
         base.Start();
+
         maxHp = bossBaseHp * level;
         currentHp = maxHp;
         bossUI = UIManager.Instance.BossHPUI;
@@ -32,6 +34,7 @@ public class StageBoss : Cat
         {
             bossUI.UpdateHP(currentHp);
         });
+
     }
 
     private void Update()
@@ -46,7 +49,7 @@ public class StageBoss : Cat
         ApplyBuffToNearByCats();
     }
 
-    public override void TakeDamage(int damage)
+    public override void TakeDamage(float damage)
     {
         base.TakeDamage(damage);
     }

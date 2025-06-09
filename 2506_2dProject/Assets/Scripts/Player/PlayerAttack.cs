@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class PlayerAttack : MonoBehaviour
@@ -14,6 +15,11 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] public ArrowPool arrowPool;
     [SerializeField] public Image[] arrowCounts;
     [SerializeField] private float reloadDelay = 1.5f;
+    [SerializeField] int maxMultiArrowCount = 5; 
+    [SerializeField] Transform firePoint; 
+    [SerializeField] float arrowSpeed = 5f;
+
+    [SerializeField] private PlayerStats playerStats;
 
     private float attackCooldown = 0f;
     private int currentArrow = 0;
@@ -33,20 +39,40 @@ public class PlayerAttack : MonoBehaviour
 
         if (Input.GetMouseButton(0) && attackCooldown <= 0 && currentArrow > 0)
         {
+
+            if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()) return;
+
             isFiring = true;
-            attackCooldown = 1 / attackSpeed;
-            currentArrow--;
+            attackCooldown = 1f / attackSpeed;
+
+            int playerLevel = playerStats != null ? playerStats.Level : 1;
+            int arrowsToFire = Mathf.Min(playerLevel, maxMultiArrowCount);
+            currentArrow -= 1;
             UpdateArrowUI();
 
-            Vector3 mouseWorldPos = UnityEngine.Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 dir = mouseWorldPos - transform.position;
+            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 dir = mouseWorldPos - firePoint.position;
             dir.z = 0;
+            dir.Normalize();
 
-            var arrow = arrowPool.GetArrow();
-            arrow.transform.position = transform.position;
+            Vector3 perpendicular = Vector3.Cross(dir, Vector3.forward).normalized;
 
-            arrow.transform.rotation = Quaternion.LookRotation(Vector3.forward, dir.normalized);
-            arrow.Fire(dir.normalized * 5f, arrowPool.Pool, attackPower);
+
+            for (int i = 0; i < arrowsToFire; i++)
+            {
+                float offset = (i - (arrowsToFire - 1) / 2f) * 0.5f;
+                Vector3 spawnPos = firePoint.position + perpendicular * offset;
+
+                var arrow = arrowPool.GetArrow();
+                if (arrow == null)
+                {
+                    continue;
+                }
+
+                arrow.transform.position = spawnPos;
+                arrow.transform.rotation = Quaternion.LookRotation(Vector3.forward, dir);
+                arrow.Fire(dir * arrowSpeed, arrowPool.Pool, attackPower);
+            }
         }
         else
         {

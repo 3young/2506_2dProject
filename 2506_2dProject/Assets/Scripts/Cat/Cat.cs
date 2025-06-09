@@ -12,8 +12,13 @@ public class Cat : MonoBehaviour
     [SerializeField] protected SpriteRenderer spriteRenderer;
 
     [SerializeField] protected int level = 1;
-    [SerializeField] float baseHp = 5f;
-    [SerializeField] int levelHp = 5;
+    [SerializeField] protected float baseHp = 5f;
+    [SerializeField] protected int levelHp = 10;
+    [SerializeField] protected bool canAttack = true;
+
+    [Header("Buff / Visual")]
+    [SerializeField] protected float dodgeChance = 0.3f; 
+    [SerializeField] protected GameObject dodgeEffectPrefab; 
 
     [SerializeField] public UnityEvent<float, float> OnHpChanged = new UnityEvent<float, float>();
     [SerializeField] CatHPUI prefabCatHPUI;
@@ -25,6 +30,10 @@ public class Cat : MonoBehaviour
     public float clampedAngle= 0f;
     public float currentHp;
     public float maxHp;
+    protected bool isBuffed = false;
+
+    protected Vector3 originalLocalPos;
+    protected float baseSpeed;
 
     public float GetSpeed() => speed;
     public void SetSpeed(float value)
@@ -34,8 +43,13 @@ public class Cat : MonoBehaviour
 
     protected virtual void Start()
     {
-        maxHp = baseHp + (level - 1) * levelHp;
-        currentHp = maxHp;
+        baseSpeed = speed;
+        if (this is StageBoss == false)
+        {
+            maxHp = baseHp + (level - 1) * levelHp;
+            currentHp = maxHp;
+            originalLocalPos = transform.localPosition;
+        }
 
         catHPUI = Instantiate(prefabCatHPUI, transform.position + Vector3.up * 0.8f, Quaternion.identity);
         catHPUI.SetFollowTarget(transform, Vector3.up * 0.8f);
@@ -44,8 +58,19 @@ public class Cat : MonoBehaviour
         OnHpChanged.Invoke(currentHp, baseHp);
     }
 
-    public virtual void TakeDamage(int damage)
+
+    public virtual void TakeDamage(float damage)
     {
+        if (isBuffed && Random.value < dodgeChance)
+        {
+            if (dodgeEffectPrefab != null)
+            {
+                GameObject fx = Instantiate(dodgeEffectPrefab, transform.position, Quaternion.identity);
+                Destroy(fx, 3f);
+            }
+            return; 
+        }
+
         currentHp -= damage;
         currentHp = Mathf.Max(0, currentHp);
 
@@ -55,6 +80,11 @@ public class Cat : MonoBehaviour
         {
             Captivated();
         }
+    }
+
+    public void ResetSpeed()
+    {
+        speed = baseSpeed;
     }
 
     public virtual void Captivated()
@@ -72,12 +102,14 @@ public class Cat : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (target == null) return;
+        if (target == null)
+        {
+            return;
+        }
 
         var dir = target.position - transform.position;
         velocity = dir.normalized * speed;
         rigid.velocity = velocity;
-
         dir.z = 0;
         transform.right = dir.normalized;
 
@@ -92,6 +124,22 @@ public class Cat : MonoBehaviour
         Vector3 dropPos = transform.position;
         var item = Instantiate(prefabItems[index], dropPos, Quaternion.identity);
         print($"[DROP] {item.name} at {dropPos}");
+    }
+
+    public void SetBuffed(bool value)
+    {
+        if (isBuffed == value) return;
+
+        isBuffed = value;
+
+        if (isBuffed)
+        {
+            speed = baseSpeed * 2f;
+        }
+        else
+        {
+            ResetSpeed();
+        }
     }
 
 }

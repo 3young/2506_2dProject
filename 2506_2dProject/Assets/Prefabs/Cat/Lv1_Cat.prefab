@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3873560996861810917}
   m_Layer: 6
   m_Name: Lv1_Cat
-  m_TagString: Untagged
+  m_TagString: Cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,6 +109,9 @@ MonoBehaviour:
   level: 1
   baseHp: 5
   levelHp: 5
+  canAttack: 1
+  dodgeChance: 0.3
+  dodgeEffectPrefab: {fileID: 3942040009764330409, guid: 72a7d9f9c79e3024badaa0412089d517, type: 3}
   OnHpChanged:
     m_PersistentCalls:
       m_Calls: []

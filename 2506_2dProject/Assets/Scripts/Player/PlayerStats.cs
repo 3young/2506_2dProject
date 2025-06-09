@@ -15,8 +15,10 @@ public class PlayerStats : MonoBehaviour
     public UnityEvent<float, float> OnExpChanged;
     public UnityEvent<int> OnLevelUp;
 
-    private void Awake()
+    public void LoadFromGameManager()
     {
+        playerLevel = GameManager.Instance.savedPlayerLevel;
+        currentExp = GameManager.Instance.savedPlayerExp;
         Init();
     }
 
@@ -46,13 +48,6 @@ public class PlayerStats : MonoBehaviour
     {
         playerLevel = 1;
         currentExp = 0;
-        Init();
-    }
-
-    public void LoadFromGameManager()
-    {
-        playerLevel = GameManager.Instance.savedPlayerLevel;
-        currentExp = GameManager.Instance.savedPlayerExp;
         Init();
     }
 

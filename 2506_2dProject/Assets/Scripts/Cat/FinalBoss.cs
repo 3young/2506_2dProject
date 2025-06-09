@@ -120,7 +120,7 @@ public class FinalBoss : Cat
         return new Vector3(x, y, 0);
     }
 
-    public override void TakeDamage(int damage)
+    public override void TakeDamage(float damage)
     {
         currentHp -= damage;
         currentHp = Mathf.Max(0, currentHp);

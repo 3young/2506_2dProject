@@ -3,6 +3,7 @@ using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.Analytics;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 public class Player : MonoBehaviour
 {
@@ -11,9 +12,18 @@ public class Player : MonoBehaviour
     [SerializeField] PlayerMovement movement;
     [SerializeField] PlayerHealth health;
 
+    private AbilitySystem abilitySystem;
+    public PlayerAttack Attack => attack;
+
+    private void Awake()
+    {
+        abilitySystem = GetComponent<AbilitySystem>();
+    }
+
     private void Start()
     {
         stats.LoadFromGameManager();
+        stats.OnLevelUp.AddListener(OnPlayerLevelUp);
     }
 
     private void Update()
@@ -27,6 +37,11 @@ public class Player : MonoBehaviour
         movement.Move();
         health.RegenerateHealth();
     }
+    private void OnPlayerLevelUp(int newLevel)
+    {
+        Debug.Log("플레이어 레벨업 감지됨");
+        abilitySystem.OnPlayerLevelUp();
+    }
 
     public void TakeDamage(float amount)
     {
@@ -36,7 +51,6 @@ public class Player : MonoBehaviour
     public void Die()
     {
         stats.ResetStats();
-        stats.SaveToGameManager();
         GameManager.Instance.ResetSavedStats();
     }
 

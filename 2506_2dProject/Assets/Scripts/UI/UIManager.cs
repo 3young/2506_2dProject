@@ -10,14 +10,19 @@ public class UIManager : MonoBehaviour
 
     public StageResultUI StageResultUI;
 
+    [SerializeField] private Player player;
+
     [Header("Player UI")]
-    [SerializeField] public Image hpImage;
+    [SerializeField] public Image fillHpImage;
     [SerializeField] TMPro.TextMeshProUGUI txtTimer;
     [SerializeField] Image[] arrowUIImages;
     [SerializeField] public EventSystem eventSystem;
 
     [Header("Boss UI")]
     [SerializeField] BossHPUI bossHPUI;
+
+    [Header("Ability UI")]
+    [SerializeField] public AbilityUIManager AbilityUI;
 
     public BossHPUI BossHPUI => bossHPUI;
     public Image[] ArrowUIImages => arrowUIImages;
@@ -55,6 +60,15 @@ public class UIManager : MonoBehaviour
         else
         {
             gameObject.SetActive(true);
+        }
+    }
+
+    public void ConnectPlayerUI(PlayerStats stats)
+    {
+        var expUI = GetComponentInChildren<PlayerExpUI>();
+        if (expUI != null)
+        {
+            expUI.Connect(stats);
         }
     }
 

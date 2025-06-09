@@ -20,11 +20,16 @@ public class PlayerHealth : MonoBehaviour
     private void Awake()
     {
         hp = maxHp;
+
+        if (healthBar == null && UIManager.Instance != null)
+            healthBar = UIManager.Instance.fillHpImage;
+
+        attack = GetComponent<PlayerAttack>();
     }
 
     public void RegenerateHealth()
     {
-        if (healthBar != null) return;
+        if (healthBar == null) return;
 
         bool canRegenerate = Time.time - lastHitTime >= regenDelayAfterHit;
 

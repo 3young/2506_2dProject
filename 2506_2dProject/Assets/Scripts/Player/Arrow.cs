@@ -4,6 +4,9 @@ using UnityEngine.Pool;
 public class Arrow : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rigid;
+    [SerializeField] Transform firePoint;
+    [SerializeField] float arrowSpeed = 10f;
+
 
     private IObjectPool<Arrow> arrowPool;
 
@@ -13,6 +16,8 @@ public class Arrow : MonoBehaviour
 
     public void Fire(Vector2 dir, IObjectPool<Arrow> arrowPool, int attackPower)
     {
+        Debug.Log("[Arrow] Fire »£√‚µ ");
+        gameObject.SetActive(true);
         rigid.velocity = dir;
         this.arrowPool = arrowPool;
         this.attackPower = attackPower;
@@ -24,6 +29,8 @@ public class Arrow : MonoBehaviour
 
     private void ReturnToPool()
     {
+        Debug.Log("[Arrow] ReturnToPool »£√‚µ ");
+
         if (isReturned) return;
         isReturned = true;
 
@@ -45,5 +52,6 @@ public class Arrow : MonoBehaviour
     private void OnDisable()
     {
         CancelInvoke();
+        rigid.velocity = Vector2.zero;
     }
 }

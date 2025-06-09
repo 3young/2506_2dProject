@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] BossSpawner prefabBossSpawner;
     [SerializeField] CatSpawner prefabCatSpawner;
     [SerializeField] ArrowPool arrowPool;
+    [SerializeField] SideHeartPool sideHeartPool;
     [SerializeField] StageController prefabStageController;
 
     [SerializeField] Button finalBossSpawnBtn;
@@ -48,7 +49,9 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         DontDestroyOnLoad(virtualCamera.gameObject);
 
-        if(StageController.Instance == null)
+        SetupSideHeartPool();
+
+        if (StageController.Instance == null)
         {
             stageController = Instantiate(prefabStageController);
             DontDestroyOnLoad (stageController.gameObject);
@@ -95,6 +98,13 @@ public class GameManager : MonoBehaviour
 
         SetupCamera();
         StageController.Instance?.StartStage();
+    }
+    private void SetupSideHeartPool()
+    {
+        if (SideHeartPool.Instance == null)
+        {
+            Instantiate(sideHeartPool);
+        }
     }
 
     private void SetupCamera()
@@ -150,11 +160,12 @@ public class GameManager : MonoBehaviour
         CurrentPlayer = Instantiate(prefabPlayer, spawnPos, Quaternion.identity);
 
         var stats = CurrentPlayer.GetComponent<PlayerStats>();
-        if(stats != null)
+        if (stats != null)
         {
             stats.LoadFromGameManager();
+            UIManager.Instance.ConnectPlayerUI(stats); 
         }
-        
+
         var attack = CurrentPlayer.GetComponent<PlayerAttack>();
         if (attack != null)
         {
@@ -171,7 +182,7 @@ public class GameManager : MonoBehaviour
 
         if (health != null && UIManager.Instance != null)
         {
-            health.healthBar = UIManager.Instance?.hpImage;
+            health.healthBar = UIManager.Instance?.fillHpImage;
             health.ResetHealth();
         }
 
@@ -206,7 +217,7 @@ public class GameManager : MonoBehaviour
 
         SceneManager.sceneLoaded += OnSceneLoadedAfterGameOver;   
         StageController.Instance?.ResetStage();
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     private void OnSceneLoadedAfterGameOver(Scene scene, LoadSceneMode mode)

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - CameraArea
   - Boss
+  - FxTemporaire
+  - Cat
   layers:
   - Default
   - TransparentFX
@@ -40,6 +42,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: New Layer 1
+    uniqueID: 3606024887
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

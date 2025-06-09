@@ -56,7 +56,7 @@ public class NormarDropItem : MonoBehaviour, IDropItem
                 AbsorbByPlayer(target.GetComponent<Player>());
             }
         }
-        else if(target.CompareTag("Boss"))
+        else if(target.CompareTag("Cat"))
         {
             var finalBoss = target.GetComponent<FinalBoss>();
             if(finalBoss != null && finalBoss.isActiveAndEnabled)

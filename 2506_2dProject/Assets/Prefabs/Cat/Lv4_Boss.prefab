@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3405664480963909112}
   m_Layer: 6
   m_Name: Lv4_Boss
-  m_TagString: Untagged
+  m_TagString: Cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56,6 +56,9 @@ MonoBehaviour:
   level: 1
   baseHp: 5
   levelHp: 5
+  canAttack: 1
+  dodgeChance: 0.3
+  dodgeEffectPrefab: {fileID: 0}
   OnHpChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -65,6 +68,7 @@ MonoBehaviour:
   currentHp: 0
   maxHp: 0
   bossName: SUNMI
+  bossBaseHp: 10
   attackInterval: 3
   attackRange: 3
   attackPower: 5
