@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.58, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6048445254784359686}
@@ -48,8 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigid: {fileID: 8561687617190688947}
-  player: {fileID: 4785645470645298335, guid: 1e5426579f2763042a859ec769c6f689, type: 3}
-  catHpUi: {fileID: 1281558246223973433, guid: 32157b1f4f8dea04c93b635ec36bd1e0, type: 3}
+  firePoint: {fileID: 0}
+  arrowSpeed: 10
 --- !u!50 &8561687617190688947
 Rigidbody2D:
   serializedVersion: 4

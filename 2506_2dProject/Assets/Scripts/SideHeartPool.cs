@@ -11,7 +11,7 @@ public class SideHeartPool : MonoBehaviour
     [SerializeField] int maxSize = 150;
 
     private ObjectPool<SideHeart> pool;
-    private readonly List<SideHeart> activeBullets = new List<SideHeart>();
+    private readonly HashSet<SideHeart> activeBullets = new HashSet<SideHeart>();
 
     private void Awake()
     {
@@ -45,10 +45,7 @@ public class SideHeartPool : MonoBehaviour
     private void OnGet(SideHeart heart)
     {
         heart.gameObject.SetActive(true);
-        if (!activeBullets.Contains(heart))
-        {
-            activeBullets.Add(heart);
-        }
+        activeBullets.Add(heart);
     }
 
     private void OnRelease(SideHeart heart)
@@ -74,9 +71,11 @@ public class SideHeartPool : MonoBehaviour
 
     public void ClearAllBullets()
     {
-        for (int i = activeBullets.Count - 1; i >= 0; i--)
+        var bulletsToClear = new List<SideHeart>(activeBullets);
+
+        foreach (var bullet in bulletsToClear)
         {
-            ReturnBullet(activeBullets[i]);
+            ReturnBullet(bullet);
         }
     }
 

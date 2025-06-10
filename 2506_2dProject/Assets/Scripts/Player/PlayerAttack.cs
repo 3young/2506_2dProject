@@ -60,7 +60,7 @@ public class PlayerAttack : MonoBehaviour
 
             for (int i = 0; i < arrowsToFire; i++)
             {
-                float offset = (i - (arrowsToFire - 1) / 2f) * 0.5f;
+                float offset = (i - (arrowsToFire - 1) / 2f) * 0.2f;
                 Vector3 spawnPos = firePoint.position + perpendicular * offset;
 
                 var arrow = arrowPool.GetArrow();

@@ -66,8 +66,7 @@ public class SideHeartAttackAbility : MonoBehaviour
 
         for (int i = 1; i <= lvl; i++)
         {
-            int sign = (i % 2 == 1) ? 1 : -1;
-            float angle = 30f * Mathf.Ceil(i / 2f) * sign;
+            float angle = (30f * i) % 360f;
             result.Add(angle);
         }
 
@@ -76,6 +75,6 @@ public class SideHeartAttackAbility : MonoBehaviour
 
     public void LevelUp()
     {
-        level = Mathf.Min(level + 1, 11);
+        level = Mathf.Clamp(level + 1, 1, 12);
     }
 }

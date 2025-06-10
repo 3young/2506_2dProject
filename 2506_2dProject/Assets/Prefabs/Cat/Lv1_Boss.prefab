@@ -68,7 +68,7 @@ MonoBehaviour:
   currentHp: 0
   maxHp: 0
   bossName: MINSIK
-  bossBaseHp: 10
+  bossBaseHp: 20
   attackInterval: 3
   attackRange: 3
   attackPower: 5
