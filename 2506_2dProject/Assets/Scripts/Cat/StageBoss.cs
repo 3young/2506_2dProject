@@ -6,7 +6,7 @@ using UnityEngine;
 public class StageBoss : Cat
 {
     [SerializeField] string bossName;
-    [SerializeField] float bossBaseHp = 10f;
+    [SerializeField] float bossBaseHp = 20f;
 
     [SerializeField] float attackInterval = 3f;
     [SerializeField] float attackRange = 3f;

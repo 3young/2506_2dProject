@@ -106,7 +106,7 @@ MonoBehaviour:
   velocity: {x: 0, y: 0}
   speed: 1
   spriteRenderer: {fileID: 2759733958573205950}
-  level: 1
+  level: 4
   baseHp: 5
   levelHp: 5
   canAttack: 1
