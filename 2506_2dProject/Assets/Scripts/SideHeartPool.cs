@@ -34,6 +34,19 @@ public class SideHeartPool : MonoBehaviour
             maxSize
         );
     }
+    private void Start()
+    {
+        Preload(50); 
+    }
+
+    private void Preload(int count)
+    {
+        for (int i = 0; i < count; i++)
+        {
+            var obj = pool.Get();
+            pool.Release(obj);
+        }
+    }
 
     private SideHeart CreateFunc()
     {
@@ -44,7 +57,6 @@ public class SideHeartPool : MonoBehaviour
 
     private void OnGet(SideHeart heart)
     {
-        heart.gameObject.SetActive(true);
         activeBullets.Add(heart);
     }
 
@@ -57,6 +69,18 @@ public class SideHeartPool : MonoBehaviour
     private void OnDestroyPoolObject(SideHeart heart)
     {
         Destroy(heart.gameObject);
+    }
+
+    private void Update()
+    {
+        float deltaTime = Time.deltaTime;
+
+        var bullets = new List<SideHeart>(activeBullets);
+
+        foreach (var heart in activeBullets)
+        {
+            heart.ManualUpdate(deltaTime);
+        }
     }
 
     public SideHeart GetHeart()

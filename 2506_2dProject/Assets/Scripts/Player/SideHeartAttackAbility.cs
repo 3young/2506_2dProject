@@ -53,10 +53,16 @@ public class SideHeartAttackAbility : MonoBehaviour
         foreach (float angle in angles)
         {
             Quaternion rot = Quaternion.Euler(0, 0, angle);
+            Vector2 direction = rot * Vector2.right;
+
             SideHeart heart = SideHeartPool.Instance.GetHeart();
+
             heart.transform.position = firePoint.position;
             heart.transform.rotation = rot;
-            heart.Initialize(rot * Vector2.right, damage);
+
+            heart.Initialize(direction, damage);
+
+            heart.gameObject.SetActive(true);
         }
     }
 

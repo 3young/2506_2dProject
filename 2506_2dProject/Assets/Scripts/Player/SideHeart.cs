@@ -17,19 +17,10 @@ public class SideHeart : MonoBehaviour
     {
         direction = dir.normalized;
         damage = dmg;
-    }
-
-    public void SetPool(IObjectPool<SideHeart> pool)
-    {
-        this.pool = pool;
-    }
-
-    private void OnEnable()
-    {
         timer = 0f;
     }
 
-    private void Update()
+    public void ManualUpdate(float deltaTime)
     {
         transform.position += (Vector3)(direction * speed * Time.deltaTime);
 
@@ -38,6 +29,11 @@ public class SideHeart : MonoBehaviour
         {
             ReturnToPool();
         }
+    }
+
+    public void SetPool(IObjectPool<SideHeart> pool)
+    {
+        this.pool = pool;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -56,13 +52,6 @@ public class SideHeart : MonoBehaviour
     {
         if (!gameObject.activeSelf) return;
 
-        if (pool != null)
-        {
-            pool.Release(this);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        pool?.Release(this);
     }
 }

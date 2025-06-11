@@ -6,20 +6,31 @@ public class AbilityUIManager : MonoBehaviour
     [SerializeField] GameObject optionButtonPrefab;
     [SerializeField] Transform optionsContainer;
 
+    private readonly List<AbilityOptionButton> pooledButtons = new();
+
+
     public void ShowAbilityOptions(List<AbilityChoice> choices)
     {
         gameObject.SetActive(true);
 
-        foreach (Transform child in optionsContainer)
-        { 
-            Destroy(child.gameObject); 
-        }
-
-        foreach (var choice in choices)
+        while (pooledButtons.Count < choices.Count)
         {
             var obj = Instantiate(optionButtonPrefab, optionsContainer);
             var button = obj.GetComponent<AbilityOptionButton>();
-            button.Setup(choice);
+            pooledButtons.Add(button);
+        }
+
+        for (int i = 0; i < pooledButtons.Count; i++)
+        {
+            if (i < choices.Count)
+            {
+                pooledButtons[i].gameObject.SetActive(true);
+                pooledButtons[i].Setup(choices[i]);
+            }
+            else
+            {
+                pooledButtons[i].gameObject.SetActive(false);
+            }
         }
     }
 
