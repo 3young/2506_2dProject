@@ -50,7 +50,7 @@ MonoBehaviour:
   - {fileID: 5207558009234145395, guid: 637b89e4071b2fa48bdb2346f4ff6aea, type: 3}
   - {fileID: 6392116677684658630, guid: 6d10baaa734877f40bffdfc7ad66e3f9, type: 3}
   - {fileID: 413510556514724348, guid: 37b8d09d40e37504cb47519ed5b7f84b, type: 3}
-  baseSpawnInterval: 2
+  baseSpawnInterval: 3
   target: {fileID: 0}
-  spawnInterval: 2
+  spawnInterval: 3
   spawnIntervalDecay: 0.95

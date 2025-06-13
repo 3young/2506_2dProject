@@ -122,8 +122,12 @@ public class Cat : MonoBehaviour
 
         int index = Random.Range(0, prefabItems.Length);
         Vector3 dropPos = transform.position;
-        var item = Instantiate(prefabItems[index], dropPos, Quaternion.identity);
-        print($"[DROP] {item.name} at {dropPos}");
+
+        int roll = Random.Range(0, 3); 
+        if (roll == 0) 
+        {
+            var item = Instantiate(prefabItems[index], dropPos, Quaternion.identity);
+        }
     }
 
     public void SetBuffed(bool value)

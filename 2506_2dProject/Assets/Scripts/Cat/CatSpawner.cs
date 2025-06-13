@@ -6,7 +6,7 @@ using UnityEngine;
 public class CatSpawner : MonoBehaviour
 {
     [SerializeField] Cat[] prefabsCat;
-    [SerializeField] float baseSpawnInterval = 2f;
+    [SerializeField] float baseSpawnInterval = 3f;
 
     public Transform target;
 

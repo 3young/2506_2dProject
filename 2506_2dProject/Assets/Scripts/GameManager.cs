@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     public int savedPlayerLevel = 1;
     public float savedPlayerExp = 0f;
     public float finalBossClearTime = 0f;
+    public int savedSideHeartLevel = 1;
 
     public Player CurrentPlayer { get; private set; }
     public FinalBoss CurrentBoss { get; private set; }

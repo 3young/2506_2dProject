@@ -203,7 +203,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   prefabCatHPUI: {fileID: 1281558246223973433, guid: 32157b1f4f8dea04c93b635ec36bd1e0, type: 3}
-  prefabItems: []
+  prefabItems:
+  - {fileID: 7021657383640313645, guid: 12a68f428918b374b962d517d690db94, type: 3}
+  - {fileID: 6858741774818228903, guid: 2cefa18483308ed4c91132ec59282f19, type: 3}
   clampedAngle: 0
   currentHp: 0
   maxHp: 0

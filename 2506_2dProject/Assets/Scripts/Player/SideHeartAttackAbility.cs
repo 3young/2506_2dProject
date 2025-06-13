@@ -19,6 +19,7 @@ public class SideHeartAttackAbility : MonoBehaviour
     {
         var player = GameManager.Instance.CurrentPlayer.GetComponent<Player>();
         playerAttack = player.GetComponent<Player>().Attack;
+        level = GameManager.Instance.savedSideHeartLevel;
     }
 
     private void OnEnable()
@@ -82,5 +83,6 @@ public class SideHeartAttackAbility : MonoBehaviour
     public void LevelUp()
     {
         level = Mathf.Clamp(level + 1, 1, 12);
+        GameManager.Instance.savedSideHeartLevel = level;
     }
 }
