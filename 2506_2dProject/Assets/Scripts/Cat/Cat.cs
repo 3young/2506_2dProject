@@ -10,6 +10,7 @@ public class Cat : MonoBehaviour
     [SerializeField] protected Vector2 velocity = Vector2.zero;
     [SerializeField] protected float speed = 1f;
     [SerializeField] protected SpriteRenderer spriteRenderer;
+    [SerializeField] Animator animator;
 
     [SerializeField] protected int level = 1;
     [SerializeField] protected float baseHp = 5f;
@@ -78,7 +79,15 @@ public class Cat : MonoBehaviour
 
         if(currentHp <= 0)
         {
-            Captivated();
+            if (this is StageBoss boss)
+            {
+                animator.SetTrigger("Affected");
+                target = null;
+            }
+            else
+            {
+                Captivated();
+            }
         }
     }
 

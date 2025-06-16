@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -77,7 +78,7 @@ public class SideHeartPool : MonoBehaviour
 
         var bullets = new List<SideHeart>(activeBullets);
 
-        foreach (var heart in activeBullets)
+        foreach (var heart in activeBullets.ToList())
         {
             heart.ManualUpdate(deltaTime);
         }

@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class NormarDropItem : MonoBehaviour, IDropItem
 {
     [SerializeField] float pickUpRadius = .5f;
-    [SerializeField] float attractRadius = 1.5f;
+    [SerializeField] float attractRadius = 1f;
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] ItemType itemType;
 

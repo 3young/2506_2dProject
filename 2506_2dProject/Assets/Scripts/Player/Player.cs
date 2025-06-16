@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
     }
     private void OnPlayerLevelUp(int newLevel)
     {
-        Debug.Log("플레이어 레벨업 감지됨");
+        //Debug.Log("플레이어 레벨업 감지됨");
         abilitySystem.OnPlayerLevelUp();
     }
 

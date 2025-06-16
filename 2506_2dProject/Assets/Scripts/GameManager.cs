@@ -243,6 +243,7 @@ public class GameManager : MonoBehaviour
     {
         savedPlayerLevel = 1;
         savedPlayerExp = 0f;
+        savedSideHeartLevel = 1;
     }
 
     public void OnPauseGame()

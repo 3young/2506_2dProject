@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickUpRadius: 0.5
-  attractRadius: 3
+  attractRadius: 1.5
   moveSpeed: 5
   itemType: 1
 --- !u!95 &316030319119665909

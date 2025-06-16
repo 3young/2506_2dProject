@@ -96,7 +96,6 @@ public class StageBoss : Cat
 
     public override void Captivated()
     {
-        base.Captivated();
         bossUI.Hide();
         GameEvents.OnBossCaptivated?.Invoke();
     }

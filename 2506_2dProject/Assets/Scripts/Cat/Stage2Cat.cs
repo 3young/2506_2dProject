@@ -10,7 +10,7 @@ public class Stage2Cat : Cat
     [SerializeField] private float dashSpeed = 7f;
 
     [SerializeField] private GameObject dashIndicatorPrefab;
-    [SerializeField] Animator animator;
+    [SerializeField] Animator stage2animator;
 
     private Vector2 lockedDirection;
     private bool isDashing = false;
@@ -35,7 +35,7 @@ public class Stage2Cat : Cat
 
             lockedDirection = Vector2.zero;
 
-            animator.SetTrigger("Aim");
+            stage2animator.SetTrigger("Aim");
             float timer = 0f;
 
             if (dashIndicatorPrefab != null)
