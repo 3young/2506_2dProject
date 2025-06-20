@@ -167,8 +167,7 @@ Transform:
   m_LocalPosition: {x: -11, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1478101647}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
@@ -474,7 +473,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 251555759}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1080592023745396578, guid: ee3e5893aa358bd44b27832f0181db10, type: 3}
       propertyPath: m_Name
@@ -530,11 +529,6 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 3405664480963909112, guid: ee3e5893aa358bd44b27832f0181db10, type: 3}
   m_PrefabInstance: {fileID: 1478101645}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1478101647 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5465131976904860559, guid: ee3e5893aa358bd44b27832f0181db10, type: 3}
-  m_PrefabInstance: {fileID: 1478101645}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -542,4 +536,5 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 534992455}
   - {fileID: 730546597}
+  - {fileID: 1478101645}
   - {fileID: 251555759}

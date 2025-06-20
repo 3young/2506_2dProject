@@ -15,7 +15,7 @@ C:/3young/03_ForMinzi/2506_2dProject
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-50586
+51000
 -job-worker-count
 5
 -background-job-worker-count
@@ -58,12 +58,12 @@ C:/3young/03_ForMinzi/2506_2dProject
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [6832] Host "[IP] 192.168.0.174 [Port] 0 [Flags] 2 [Guid] 261870065 [EditorId] 261870065 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-7GLVIQO) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
-Player connection [6832] Host "[IP] 192.168.0.174 [Port] 0 [Flags] 2 [Guid] 261870065 [EditorId] 261870065 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-7GLVIQO) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [15016] Host "[IP] 192.168.0.174 [Port] 0 [Flags] 2 [Guid] 447354121 [EditorId] 447354121 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-7GLVIQO) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [15016] Host "[IP] 192.168.0.174 [Port] 0 [Flags] 2 [Guid] 447354121 [EditorId] 447354121 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-7GLVIQO) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 JobSystem: Creating JobQueue using job-worker-count value 5
 [Physics::Module] Initialized MultithreadedJobDispatcher with 5 workers.
 Library Redirect Path: Library/
-Refreshing native plugins compatible for Editor in 7.60 ms, found 9 plugins.
+Refreshing native plugins compatible for Editor in 9.31 ms, found 9 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2023.2.20f1 (0e25a174756c)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2023.2.20f1/Editor/Data/Resources/UnitySubsystems
@@ -79,22 +79,22 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2023.2.20f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2023.2.20f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2023.2.20f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56780
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56040
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2023.2.20f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2023.2.20f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2023.2.20f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
-Registered in 0.004627 seconds.
-- Loaded All Assemblies, in  0.446 seconds
+Registered in 0.004643 seconds.
+- Loaded All Assemblies, in  0.438 seconds
 Native extension for Android target not found
-Android Extension - Scanning For ADB Devices 198 ms
+Android Extension - Scanning For ADB Devices 181 ms
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.598 seconds
-Domain Reload Profiling: 1042ms
-	BeginReloadAssembly (150ms)
+- Finished resetting the current domain, in  0.555 seconds
+Domain Reload Profiling: 991ms
+	BeginReloadAssembly (140ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
@@ -103,24 +103,24 @@ Domain Reload Profiling: 1042ms
 	RebuildCommonClasses (40ms)
 	RebuildNativeTypeToScriptingClass (14ms)
 	initialDomainReloadingComplete (57ms)
-	LoadAllAssembliesAndSetupDomain (182ms)
-		LoadAssemblies (148ms)
+	LoadAllAssembliesAndSetupDomain (185ms)
+		LoadAssemblies (138ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (179ms)
-			TypeCache.Refresh (178ms)
-				TypeCache.ScanAssembly (163ms)
+		AnalyzeDomain (182ms)
+			TypeCache.Refresh (181ms)
+				TypeCache.ScanAssembly (166ms)
 			BuildScriptInfoCaches (0ms)
-			ResolveRequiredComponents (0ms)
-	FinalizeReload (598ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (555ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (534ms)
+		SetupLoadedEditorAssemblies (508ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (306ms)
+			InitializePlatformSupportModulesInManaged (290ms)
 			SetLoadedEditorAssemblies (4ms)
-			BeforeProcessingInitializeOnLoad (6ms)
-			ProcessInitializeOnLoadAttributes (164ms)
-			ProcessInitializeOnLoadMethodAttributes (55ms)
+			BeforeProcessingInitializeOnLoad (7ms)
+			ProcessInitializeOnLoadAttributes (156ms)
+			ProcessInitializeOnLoadMethodAttributes (51ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -132,67 +132,131 @@ Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image C:\3young\03_ForMinzi\2506_2dProject\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image C:\3young\03_ForMinzi\2506_2dProject\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Symbol file LoadedFromMemory is not a mono symbol file
-- Loaded All Assemblies, in  1.026 seconds
-Refreshing native plugins compatible for Editor in 6.66 ms, found 9 plugins.
+- Loaded All Assemblies, in  1.080 seconds
+Refreshing native plugins compatible for Editor in 7.49 ms, found 9 plugins.
 Native extension for Android target not found
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 6.55 ms, found 9 plugins.
+Refreshing native plugins compatible for Editor in 6.43 ms, found 9 plugins.
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.908 seconds
-Domain Reload Profiling: 1929ms
-	BeginReloadAssembly (362ms)
+- Finished resetting the current domain, in  0.920 seconds
+Domain Reload Profiling: 1994ms
+	BeginReloadAssembly (367ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (6ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (30ms)
-	RebuildCommonClasses (39ms)
-	RebuildNativeTypeToScriptingClass (14ms)
-	initialDomainReloadingComplete (40ms)
-	LoadAllAssembliesAndSetupDomain (566ms)
-		LoadAssemblies (407ms)
+		CreateAndSetChildDomain (31ms)
+	RebuildCommonClasses (44ms)
+	RebuildNativeTypeToScriptingClass (22ms)
+	initialDomainReloadingComplete (44ms)
+	LoadAllAssembliesAndSetupDomain (596ms)
+		LoadAssemblies (442ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (266ms)
-			TypeCache.Refresh (197ms)
-				TypeCache.ScanAssembly (174ms)
-			BuildScriptInfoCaches (54ms)
-			ResolveRequiredComponents (12ms)
-	FinalizeReload (908ms)
+		AnalyzeDomain (267ms)
+			TypeCache.Refresh (204ms)
+				TypeCache.ScanAssembly (180ms)
+			BuildScriptInfoCaches (48ms)
+			ResolveRequiredComponents (13ms)
+	FinalizeReload (921ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (682ms)
+		SetupLoadedEditorAssemblies (691ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (19ms)
-			SetLoadedEditorAssemblies (6ms)
-			BeforeProcessingInitializeOnLoad (81ms)
-			ProcessInitializeOnLoadAttributes (363ms)
-			ProcessInitializeOnLoadMethodAttributes (208ms)
+			InitializePlatformSupportModulesInManaged (23ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (78ms)
+			ProcessInitializeOnLoadAttributes (375ms)
+			ProcessInitializeOnLoadMethodAttributes (205ms)
 			AfterProcessingInitializeOnLoad (5ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (11ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
-Refreshing native plugins compatible for Editor in 8.81 ms, found 9 plugins.
+Refreshing native plugins compatible for Editor in 8.84 ms, found 9 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 52 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 5969 unused Assets / (3.5 MB). Loaded Objects now: 6543.
-Memory consumption went from 140.8 MB to 137.3 MB.
-Total: 17.160600 ms (FindLiveObjects: 1.030200 ms CreateObjectMapping: 1.261300 ms MarkObjects: 11.833800 ms  DeleteObjects: 3.033600 ms)
+Unloading 5969 unused Assets / (3.2 MB). Loaded Objects now: 6543.
+Memory consumption went from 140.8 MB to 137.6 MB.
+Total: 15.491200 ms (FindLiveObjects: 1.019800 ms CreateObjectMapping: 1.525100 ms MarkObjects: 9.996600 ms  DeleteObjects: 2.948600 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 1518.119576 seconds.
-  path: Assets/Animation/Boss5.controller
-  artifactKey: Guid(925e376c3eee47c4294cdf78748f5412) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/Boss5.controller using Guid(925e376c3eee47c4294cdf78748f5412) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4ca5f272752f963436f42788bc793676') in 0.0234107 seconds
+  Time since last request: 1715.042376 seconds.
+  path: Assets/Animation/Lv5Boss 1.anim
+  artifactKey: Guid(c09b8aca8070b8a429d08caa092293bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Lv5Boss 1.anim using Guid(c09b8aca8070b8a429d08caa092293bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '991dc3218c7918d57ed6415f13687ee6') in 0.0212379 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 21.910743 seconds.
+  path: Assets/Animation/Lv5Boss Appeared.anim
+  artifactKey: Guid(c09b8aca8070b8a429d08caa092293bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Lv5Boss Appeared.anim using Guid(c09b8aca8070b8a429d08caa092293bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '55187c70cd90a7a923779261f1a8b1e2') in 0.0013801 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.755216 seconds.
+  path: Assets/Animation/Lv5Boss.anim
+  artifactKey: Guid(945a250311f3b84438e77672ddfbb65a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Lv5Boss.anim using Guid(945a250311f3b84438e77672ddfbb65a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '758e3344fd9d6e0605daa8ea2610d3cc') in 0.0012964 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 81.429431 seconds.
+  path: Assets/Animation/Lv5BossRun.anim
+  artifactKey: Guid(945a250311f3b84438e77672ddfbb65a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Lv5BossRun.anim using Guid(945a250311f3b84438e77672ddfbb65a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '22c1e209e8c3adfeff7509b2f10ddd54') in 0.0014864 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.338148 seconds.
+  path: Assets/Animation/Lv5BossAppeared.anim
+  artifactKey: Guid(c09b8aca8070b8a429d08caa092293bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Lv5BossAppeared.anim using Guid(c09b8aca8070b8a429d08caa092293bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7f49d23d6cb713bccbf2c5a892019a2c') in 0.0013493 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 161.525406 seconds.
+  path: Assets/Animation/Lv5BossStretch.anim
+  artifactKey: Guid(01430d6fe126d4f4d99ce5e3cde694cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Lv5BossStretch.anim using Guid(01430d6fe126d4f4d99ce5e3cde694cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4c211d7650446bffb26cc4977d31b1c0') in 0.0010707 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 509.795889 seconds.
+  path: Assets/ImportedAssets/DungGeunMo.ttf
+  artifactKey: Guid(4dc779172213f1345a95c41d6e2a8aad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/DungGeunMo.ttf using Guid(4dc779172213f1345a95c41d6e2a8aad) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1a3e4d5fd1d595658f4fd741540b9696') in 0.0992742 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
 
 ========================================================================
 Received Import Request.
-  Time since last request: 7.503128 seconds.
-  path: Assets/Animation/Lv5Boss.anim
-  artifactKey: Guid(945a250311f3b84438e77672ddfbb65a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/Lv5Boss.anim using Guid(945a250311f3b84438e77672ddfbb65a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '559b70c66a5a662bf052127b14fd7e0c') in 0.00257 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+  Time since last request: 0.033640 seconds.
+  path: Assets/ImportedAssets/Galmuri9.ttf
+  artifactKey: Guid(48686b73e923fef41a134c8295398b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Galmuri9.ttf using Guid(48686b73e923fef41a134c8295398b88) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '88dcb47d7d90ba58ab707a56c6ee9767') in 0.022275 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/ImportedAssets/Galmuri9 SDF.asset
+  artifactKey: Guid(e132aaa0a21a8e941ae050692d45ca5f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ImportedAssets/Galmuri9 SDF.asset using Guid(e132aaa0a21a8e941ae050692d45ca5f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6a8e1474fb06fbbb19a94e06caace0af') in 0.2505197 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.989949 seconds.
+  path: Assets/Scripts/Cat/FinalBoss.cs
+  artifactKey: Guid(c70b4684ae4007945b18272d141ecd01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Cat/FinalBoss.cs using Guid(c70b4684ae4007945b18272d141ecd01) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b20f85d34ad00a1a3b72682e5102011e') in 0.0009184 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
 
