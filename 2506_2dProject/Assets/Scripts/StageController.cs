@@ -89,7 +89,7 @@ public class StageController : MonoBehaviour
             finalBossSpawnBtn.SetActive(false);
         }
 
-        GameManager.Instance?.ForceSpawnFinalBoss();
+        GameManager.Instance?.SpawnFinalBossWithTimeline();
         StageTimerManager.Instance?.StartTimer();
     }
 }

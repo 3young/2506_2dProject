@@ -88,18 +88,25 @@ public class GameManager : MonoBehaviour
             StageController.Instance.OnStageChanged?.Invoke(StageController.Instance.currentStage);
         }
 
-        if(finalBossSpawnBtn != null)
-        {
-            StageController.Instance.finalBossSpawnBtn = finalBossSpawnBtn.gameObject;
-            finalBossSpawnBtn.gameObject.SetActive(false);
-
-            finalBossSpawnBtn.onClick.RemoveAllListeners();
-            finalBossSpawnBtn.onClick.AddListener(StageController.Instance.OnSpawnBossButtonClicked);
-        }
-
         SetupCamera();
         StageController.Instance?.StartStage();
     }
+
+    public void SpawnFinalBossWithTimeline()
+    {
+        if (isGameOver || CurrentBoss != null) return;
+
+        if (CurrentBoss != null)
+        {
+            TimelineManager.Instance.PlayBossIntro();
+        }
+
+        if (StageController.Instance?.finalBossSpawnBtn != null)
+        {
+            StageController.Instance.finalBossSpawnBtn.SetActive(false);
+        }
+    }
+
     private void SetupSideHeartPool()
     {
         if (SideHeartPool.Instance == null)
@@ -279,14 +286,6 @@ public class GameManager : MonoBehaviour
     public void RegisterBoss(FinalBoss boss)
     {
         CurrentBoss = boss;
-    }
-
-    public void ForceSpawnFinalBoss()
-    {
-        if(bossSpawner != null)
-        {
-            bossSpawner.SpawnBoss();
-        }
     }
 
     public void WinGame()

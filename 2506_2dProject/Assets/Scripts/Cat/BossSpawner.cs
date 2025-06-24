@@ -31,7 +31,7 @@ public class BossSpawner : MonoBehaviour
 
     public void SpawnBoss()
     {
-        if (bossSpawned) return;
+        if (bossSpawned || StageController.Instance.currentStage == 5) return;
 
         int index = Mathf.Clamp(StageController.Instance.currentStage, 0, prefabBoss.Length - 1);
         var obj = Instantiate(prefabBoss[index], spawnPoint.position, Quaternion.identity);

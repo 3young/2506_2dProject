@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf47090822793b41b13bd9d8d11c5bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startBattleButtonUI: {fileID: 0}
+  finalBossSpawnBtn: {fileID: 3572602551308831506, guid: 4e8b3fbfb3aa7a54c8a364268ad2bc60, type: 3}
   currentStage: 0
   maxStage: 5
   catsAffected: 0

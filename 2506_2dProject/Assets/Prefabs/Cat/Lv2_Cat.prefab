@@ -106,6 +106,7 @@ MonoBehaviour:
   velocity: {x: 0, y: 0}
   speed: 1
   spriteRenderer: {fileID: 2361728155113684395}
+  animator: {fileID: 3405664480963909112}
   level: 2
   baseHp: 5
   levelHp: 10
@@ -127,7 +128,7 @@ MonoBehaviour:
   dashDuration: 2
   dashSpeed: 7
   dashIndicatorPrefab: {fileID: 5080003267604488314, guid: a523006fa7129344da11bd044027b8ad, type: 3}
-  animator: {fileID: 3405664480963909112}
+  stage2animator: {fileID: 3405664480963909112}
 --- !u!50 &7151051541297520916
 Rigidbody2D:
   serializedVersion: 4

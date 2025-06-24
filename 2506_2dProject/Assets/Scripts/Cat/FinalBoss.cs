@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+public enum FinalBossState
+{
+    Waiting,
+    Intro,
+    Active,
+    Affected
+}
+
 public class FinalBoss : Cat
 {
     [SerializeField] GameObject prefabClearItem;
@@ -10,6 +18,8 @@ public class FinalBoss : Cat
     [SerializeField] float itemDropRadius = 3f;
     [SerializeField] float minSpeed = 0.5f;
     [SerializeField] float wanderInterval = 3f;
+
+    private FinalBossState currentState = FinalBossState.Waiting;
 
     private ClearItem currentClearItem;
     private float lastDropPercent = 1.0f;
@@ -33,10 +43,24 @@ public class FinalBoss : Cat
         {
             bossUI.UpdateHP(currentHp);
         });
+
+    }
+
+    public void AppearBoss()
+    {
+        currentState = FinalBossState.Intro;
+        TimelineManager.Instance.PlayBossIntro();
+    }
+
+    public void StartBattle()
+    {
+        currentState = FinalBossState.Active;
     }
 
     private void Update()
     {
+        if (currentState != FinalBossState.Active) return;
+
         Transform targetItem = GetClosestDroppedItem();
 
         if (targetItem != null)
@@ -125,7 +149,7 @@ public class FinalBoss : Cat
         currentHp -= damage;
         currentHp = Mathf.Max(0, currentHp);
 
-        Debug.Log($"[FinalBoss] Damage: {damage}, CurrentHP: {currentHp}");
+        //Debug.Log($"[FinalBoss] Damage: {damage}, CurrentHP: {currentHp}");
 
         OnHpChanged.Invoke(currentHp, maxHp);
         UpdateSpeedBasedOnHp();
@@ -204,13 +228,24 @@ public class FinalBoss : Cat
 
     private void OnClearItemPicked()
     {
-        GameManager.Instance.WinGame();
         currentClearItem = null;
+        Captivated();
     }
 
     public override void Captivated()
     {
+        if (currentState == FinalBossState.Affected) return;
+        currentState = FinalBossState.Affected;
+
         bossUI.Hide();
+
+        TimelineManager.Instance.PlayBossClear();
+    }
+
+    public void OnClearTimelineEnd()
+    {
+        GameManager.Instance.WinGame();
+
         Destroy(gameObject);
     }
 }
