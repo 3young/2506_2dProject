@@ -2,14 +2,8 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Playables;
 
-public enum FinalBossState
-{
-    Waiting,
-    Intro,
-    Active,
-    Affected
-}
 
 public class FinalBoss : Cat
 {
@@ -18,8 +12,7 @@ public class FinalBoss : Cat
     [SerializeField] float itemDropRadius = 3f;
     [SerializeField] float minSpeed = 0.5f;
     [SerializeField] float wanderInterval = 3f;
-
-    private FinalBossState currentState = FinalBossState.Waiting;
+    [SerializeField] Transform model;
 
     private ClearItem currentClearItem;
     private float lastDropPercent = 1.0f;
@@ -32,6 +25,8 @@ public class FinalBoss : Cat
 
     protected override void Start()
     {
+        baseSpeed = speed;
+
         target = null;
         maxHp = 100f;
         currentHp = maxHp;
@@ -46,21 +41,9 @@ public class FinalBoss : Cat
 
     }
 
-    public void AppearBoss()
-    {
-        currentState = FinalBossState.Intro;
-        TimelineManager.Instance.PlayBossIntro();
-    }
-
-    public void StartBattle()
-    {
-        currentState = FinalBossState.Active;
-    }
 
     private void Update()
     {
-        if (currentState != FinalBossState.Active) return;
-
         Transform targetItem = GetClosestDroppedItem();
 
         if (targetItem != null)
@@ -84,6 +67,7 @@ public class FinalBoss : Cat
             MoveTowards(randomTarget);
         }
     }
+
 
     private void TryAbsorbItem(GameObject item)
     {
@@ -124,6 +108,8 @@ public class FinalBoss : Cat
     {
         Vector2 dir = (targetPos - transform.position).normalized;
         rigid.velocity = dir * speed;
+
+        Debug.Log($"[Boss] velocity: {rigid.velocity}"); 
 
         Vector3 lookDir = targetPos - transform.position;
         lookDir.z = 0;
@@ -234,12 +220,7 @@ public class FinalBoss : Cat
 
     public override void Captivated()
     {
-        if (currentState == FinalBossState.Affected) return;
-        currentState = FinalBossState.Affected;
-
         bossUI.Hide();
-
-        TimelineManager.Instance.PlayBossClear();
     }
 
     public void OnClearTimelineEnd()

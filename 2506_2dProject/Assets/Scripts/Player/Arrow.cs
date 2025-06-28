@@ -16,7 +16,7 @@ public class Arrow : MonoBehaviour
 
     public void Fire(Vector2 dir, IObjectPool<Arrow> arrowPool, int attackPower)
     {
-        //Debug.Log("[Arrow] Fire È£ÃâµÊ");
+        //Debug.Log("[Arrow] Fire È£ï¿½ï¿½ï¿½");
         gameObject.SetActive(true);
         rigid.velocity = dir;
         this.arrowPool = arrowPool;
@@ -29,7 +29,7 @@ public class Arrow : MonoBehaviour
 
     private void ReturnToPool()
     {
-        //Debug.Log("[Arrow] ReturnToPool È£ÃâµÊ");
+        //Debug.Log("[Arrow] ReturnToPool È£ï¿½ï¿½ï¿½");
 
         if (isReturned) return;
         isReturned = true;

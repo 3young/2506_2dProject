@@ -96,15 +96,7 @@ public class GameManager : MonoBehaviour
     {
         if (isGameOver || CurrentBoss != null) return;
 
-        if (CurrentBoss != null)
-        {
-            TimelineManager.Instance.PlayBossIntro();
-        }
-
-        if (StageController.Instance?.finalBossSpawnBtn != null)
-        {
-            StageController.Instance.finalBossSpawnBtn.SetActive(false);
-        }
+        SceneManager.LoadScene("FinalAnimation");
     }
 
     private void SetupSideHeartPool()
