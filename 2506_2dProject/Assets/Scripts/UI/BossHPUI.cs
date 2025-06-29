@@ -19,10 +19,10 @@ public class BossHPUI : MonoBehaviour
 
     public void UpdateHP(float currentHp)
     {
-        Debug.Log($"[BossHPUI] UpdateHP called: current = {currentHp}, max = {maxHp}");
+        //Debug.Log($"[BossHPUI] UpdateHP called: current = {currentHp}, max = {maxHp}");
         if (maxHp <= 0)
         {
-            Debug.LogWarning("BossHPUI: maxHp is 0 or less! Cannot calculate fillAmount.");
+            //Debug.LogWarning("BossHPUI: maxHp is 0 or less! Cannot calculate fillAmount.");
             return;
         }
 

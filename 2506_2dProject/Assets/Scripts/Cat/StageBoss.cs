@@ -24,12 +24,12 @@ public class StageBoss : Cat
     protected override void Start()
     {
         base.Start();
-
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.bossAppearSfx);
         maxHp = bossBaseHp * level;
         currentHp = maxHp;
         bossUI = UIManager.Instance.BossHPUI;
         bossUI.Setup(bossName, maxHp);
-
+        
         OnHpChanged.AddListener((currentHp, maxHp) =>
         {
             bossUI.UpdateHP(currentHp);
@@ -96,6 +96,7 @@ public class StageBoss : Cat
 
     public override void Captivated()
     {
+        
         bossUI.Hide();
         GameEvents.OnBossCaptivated?.Invoke();
     }

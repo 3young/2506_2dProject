@@ -12,7 +12,7 @@ public class StageTimerManager : MonoBehaviour
     public UnityEvent OnTimeReset;
     public UnityEvent OnBossTimeReached;
 
-    private float bossTriggerTime = 60f;
+    private float bossTriggerTime = 30f;
     private bool bossEventFired = false;
     private bool isRunning = true;
 

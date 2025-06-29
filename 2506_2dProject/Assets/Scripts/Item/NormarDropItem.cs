@@ -54,6 +54,7 @@ public class NormarDropItem : MonoBehaviour, IDropItem
             if (playerComp != null)
             {
                 AbsorbByPlayer(target.GetComponent<Player>());
+                AudioManager.Instance.PlaySFX(AudioManager.Instance.itemSfx);
             }
         }
         else if(target.CompareTag("Cat"))

@@ -8,7 +8,7 @@ public class SceneEndLoader : MonoBehaviour
 {
     [SerializeField] string bossSceneName = "Stage5";
 
-    public void LoadBossScene(PlayableDirector _)
+    public void LoadBossScene()
     {
         SceneManager.LoadSceneAsync(bossSceneName);
     }

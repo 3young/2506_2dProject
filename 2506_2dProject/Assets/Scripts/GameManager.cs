@@ -61,14 +61,6 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            Debug.Log("임시 보스 버튼 강제 호출!");
-            StageController.Instance.OnSpawnBossButtonClicked();
-        }
-    }
     private void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
@@ -76,7 +68,8 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "ResultScene") return;
+        UIManager.Instance?.StageResultUI?.Hide();
+        if (scene.name == "TitleScene" || scene.name == "ResultScene") return;
 
         InstantiateSpawners();
         SpawnAndSetupPlayer();
@@ -134,14 +127,15 @@ public class GameManager : MonoBehaviour
     {
         if (catSpawner != null && bossSpawner != null) return;
 
-        if (bossSpawner == null)
+        if (SceneManager.GetActiveScene().name != "Stage5")
         {
-            bossSpawner = Instantiate(prefabBossSpawner);
-            RegisterBossSpawner(bossSpawner);
-
-            if(StageTimerManager.Instance != null)
+            if (bossSpawner == null)
             {
-                StageTimerManager.Instance.RegisterSpawner(bossSpawner);
+                bossSpawner = Instantiate(prefabBossSpawner);
+                RegisterBossSpawner(bossSpawner);
+
+                StageTimerManager.Instance?.RegisterSpawner(bossSpawner);
+                
             }
         }
 
@@ -188,6 +182,12 @@ public class GameManager : MonoBehaviour
 
         if (catSpawner != null) catSpawner.target = CurrentPlayer.transform;
         if (bossSpawner != null) bossSpawner.target = CurrentPlayer.transform;
+
+        var finalBoss = FindFirstObjectByType<FinalBoss>();
+        if (finalBoss != null)
+        {
+            finalBoss.target = CurrentPlayer.transform;
+        }
 
         isGameOver = false;
     }

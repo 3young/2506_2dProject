@@ -47,7 +47,7 @@ public class CatHPUI : MonoBehaviour
 
     public void UpdateHP(float currentHp, float maxHp)
     {
-        fillCatHpBar.fillAmount = 1 - (currentHp / maxHp);
+        fillCatHpBar.fillAmount = currentHp / maxHp;
 
         Show();
 

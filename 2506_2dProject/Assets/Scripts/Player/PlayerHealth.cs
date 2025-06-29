@@ -49,6 +49,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.hitsSfx);
         hp -= amount;
         lastHitTime = Time.time;
 

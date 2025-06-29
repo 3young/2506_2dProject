@@ -75,7 +75,7 @@ public class ClearItem : MonoBehaviour, IDropItem
     {
         if (isCollected) return;
         isCollected = true;
-
+        
         OnClearItemPicked?.Invoke();
         Destroy(gameObject);
 

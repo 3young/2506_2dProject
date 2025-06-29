@@ -33,7 +33,6 @@ public class StageResultUI : MonoBehaviour
 
     public void OnClickNextStage()
     {
-        Hide();
         StageController.Instance.ProceedToNextStage();
         Time.timeScale = 1f;
     }

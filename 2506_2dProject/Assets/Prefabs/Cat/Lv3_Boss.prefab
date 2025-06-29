@@ -63,7 +63,7 @@ MonoBehaviour:
   OnHpChanged:
     m_PersistentCalls:
       m_Calls: []
-  prefabCatHPUI: {fileID: 1281558246223973433, guid: 32157b1f4f8dea04c93b635ec36bd1e0, type: 3}
+  prefabCatHPUI: {fileID: 0}
   prefabItems: []
   clampedAngle: 0
   currentHp: 0

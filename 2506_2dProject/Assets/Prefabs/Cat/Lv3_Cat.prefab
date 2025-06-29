@@ -193,9 +193,10 @@ MonoBehaviour:
   velocity: {x: 0, y: 0}
   speed: 1
   spriteRenderer: {fileID: 5534024713878838492}
+  animator: {fileID: 0}
   level: 3
-  baseHp: 5
-  levelHp: 10
+  baseHp: 3
+  levelHp: 5
   canAttack: 1
   dodgeChance: 0.3
   dodgeEffectPrefab: {fileID: 0}

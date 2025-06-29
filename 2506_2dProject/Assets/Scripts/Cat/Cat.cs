@@ -10,7 +10,7 @@ public class Cat : MonoBehaviour
     [SerializeField] protected Vector2 velocity = Vector2.zero;
     [SerializeField] protected float speed = 1f;
     [SerializeField] protected SpriteRenderer spriteRenderer;
-    [SerializeField] Animator animator;
+    [SerializeField] protected Animator animator;
 
     [SerializeField] protected int level = 1;
     [SerializeField] protected float baseHp = 5f;
@@ -49,19 +49,23 @@ public class Cat : MonoBehaviour
         {
             maxHp = baseHp + (level - 1) * levelHp;
             currentHp = maxHp;
-            originalLocalPos = transform.localPosition;
+
+            catHPUI = Instantiate(prefabCatHPUI, transform.position + Vector3.up * 0.8f, Quaternion.identity);
+            catHPUI.SetFollowTarget(transform, Vector3.up * 0.8f);
+            OnHpChanged.AddListener(catHPUI.UpdateHP);
+            
         }
+        
+        originalLocalPos = transform.localPosition;
 
-        catHPUI = Instantiate(prefabCatHPUI, transform.position + Vector3.up * 0.8f, Quaternion.identity);
-        catHPUI.SetFollowTarget(transform, Vector3.up * 0.8f);
-        OnHpChanged.AddListener(catHPUI.UpdateHP);
-
-        OnHpChanged.Invoke(currentHp, baseHp);
+        OnHpChanged.Invoke(currentHp, maxHp);
     }
 
 
     public virtual void TakeDamage(float damage)
     {
+        Debug.Log($"{gameObject.name} BEFORE Damage: {currentHp}/{maxHp}");
+
         if (isBuffed && Random.value < dodgeChance)
         {
             if (dodgeEffectPrefab != null)
@@ -74,7 +78,7 @@ public class Cat : MonoBehaviour
 
         currentHp -= damage;
         currentHp = Mathf.Max(0, currentHp);
-
+        Debug.Log($"{gameObject.name} AFTER Damage: {currentHp}/{maxHp}");
         OnHpChanged.Invoke(currentHp, maxHp);
 
         if(currentHp <= 0)
@@ -83,6 +87,7 @@ public class Cat : MonoBehaviour
             {
                 animator.SetTrigger("Affected");
                 target = null;
+                AudioManager.Instance.PlaySFX(AudioManager.Instance.clearSfx);
             }
             else
             {
@@ -109,7 +114,7 @@ public class Cat : MonoBehaviour
         DropRandomItem();
     }
 
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         if (target == null)
         {

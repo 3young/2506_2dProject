@@ -12,7 +12,10 @@ public class FinalBoss : Cat
     [SerializeField] float itemDropRadius = 3f;
     [SerializeField] float minSpeed = 0.5f;
     [SerializeField] float wanderInterval = 3f;
-    [SerializeField] Transform model;
+    [SerializeField] int attackPower = 5;
+
+    private float attackCooldown = 1.5f;
+    private float attackTimer = 0f;
 
     private ClearItem currentClearItem;
     private float lastDropPercent = 1.0f;
@@ -20,6 +23,8 @@ public class FinalBoss : Cat
     private Vector3 randomTarget;
     private float wanderTimer;
     private List<Transform> droppedItems = new List<Transform>();
+    private Vector2 currentVelocity;
+
 
     private BossHPUI bossUI;
 
@@ -27,7 +32,6 @@ public class FinalBoss : Cat
     {
         baseSpeed = speed;
 
-        target = null;
         maxHp = 100f;
         currentHp = maxHp;
 
@@ -45,29 +49,56 @@ public class FinalBoss : Cat
     private void Update()
     {
         Transform targetItem = GetClosestDroppedItem();
-
         if (targetItem != null)
         {
-            MoveTowards(targetItem.position);
-
-            if(Vector2.Distance(transform.position, targetItem.position) < 0.5f)
+            float dist = Vector2.Distance(transform.position, targetItem.position);
+            if (dist < 0.5f)
             {
                 TryAbsorbItem(targetItem.gameObject);
+                currentVelocity = Vector2.zero;
+            }
+            else
+            {
+                currentVelocity = (targetItem.position - transform.position).normalized * speed;
+            }
+        }
+        else if(target != null)
+        {
+            float dist = Vector2.Distance(transform.position, target.position);
+            if (dist < 0.5f)
+            {
+                currentVelocity = Vector2.zero;
+
+                if (attackTimer >= attackCooldown)
+                {
+                    var hp = target.GetComponent<PlayerHealth>();
+                    hp.TakeDamage(attackPower);
+                   
+                    attackTimer = 0f;
+                }
+            }
+            else
+            {
+                currentVelocity = (target.position - transform.position).normalized * speed;
+                attackTimer += Time.deltaTime;
             }
         }
         else
         {
-            wanderTimer += Time.deltaTime;
-
-            if (wanderTimer >= wanderInterval || Vector2.Distance(transform.position, randomTarget) < 0.5f)
-            {
-                randomTarget = GetRandomPositionInCamera();
-                wanderTimer = 0f;
-            }
-            MoveTowards(randomTarget);
+            currentVelocity = Vector2.zero;
         }
     }
 
+    protected override void FixedUpdate()
+    {
+        rigid.velocity = currentVelocity;
+
+        if (currentVelocity != Vector2.zero)
+        {
+            transform.right = currentVelocity.normalized;
+            spriteRenderer.flipY = transform.right.x < 0;
+        }
+    }
 
     private void TryAbsorbItem(GameObject item)
     {
@@ -102,32 +133,6 @@ public class FinalBoss : Cat
         }
 
         return closest;
-    }
-
-    private void MoveTowards(Vector3 targetPos)
-    {
-        Vector2 dir = (targetPos - transform.position).normalized;
-        rigid.velocity = dir * speed;
-
-        Debug.Log($"[Boss] velocity: {rigid.velocity}"); 
-
-        Vector3 lookDir = targetPos - transform.position;
-        lookDir.z = 0;
-        transform.right = lookDir.normalized;
-        spriteRenderer.flipY = transform.right.x < 0;
-
-    }
-
-    private Vector3 GetRandomPositionInCamera()
-    {
-        Camera cam = Camera.main;
-        Vector3 min = cam.ViewportToWorldPoint(new Vector3(0.1f, 0.1f));
-        Vector3 max = cam.ViewportToWorldPoint(new Vector3(0.9f, 0.9f));
-
-        float x = Random.Range(min.x, max.x);
-        float y = Random.Range(min.y, max.y);
-
-        return new Vector3(x, y, 0);
     }
 
     public override void TakeDamage(float damage)
@@ -214,19 +219,15 @@ public class FinalBoss : Cat
 
     private void OnClearItemPicked()
     {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.clearSfx);
         currentClearItem = null;
-        Captivated();
+        animator.SetTrigger("Affected");
+        Invoke(nameof(Captivated), 5f);
     }
 
     public override void Captivated()
     {
         bossUI.Hide();
-    }
-
-    public void OnClearTimelineEnd()
-    {
         GameManager.Instance.WinGame();
-
-        Destroy(gameObject);
     }
 }
